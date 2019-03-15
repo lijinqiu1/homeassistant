@@ -14,10 +14,10 @@ class MainFloatLayout(FloatLayout):
         Clock.schedule_interval(self._update_clock, 1 / 60.)
 
     def _update_clock(self,dt):
-        self.ids.main_atmosphere_Label.text = 'bad'
-        self.ids.main_WaterQuality_Label.text = 'bad'
-        self.ids.main_temperature_Label.text = '25' + "C"
-        self.ids.main_Hum_Label.text = 'bad'
+        self.ids.atmosphere_Label.text = 'bad'
+        self.ids.WaterQuality_Label.text = 'bad'
+        self.ids.temperature_Label.text = '25'
+        self.ids.Hum_Label.text = 'bad'
 
     def on_easy_screen(self, *l):
         pass

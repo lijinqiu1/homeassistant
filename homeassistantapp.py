@@ -34,9 +34,11 @@ class Homeassistant(App):
         self.bind(on_main_screen=easy.on_main_screen)
 
     def on_easy_screen(self):
+        self.root.ids.sm.transition.direction = 'left'
         self.root.ids.sm.current = 'easy'
 
     def on_main_screen(self):
+        self.root.ids.sm.transition.direction = 'right'
         self.root.ids.sm.current = 'main'
 
     def on_door_control(self):
