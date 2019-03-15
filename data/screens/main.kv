@@ -1,0 +1,64 @@
+<MainFloatLayout>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'data/icons/main/background.jpg'
+    #PM 2.5
+    Label
+        id: main_atmosphere_Label
+        pos_hint: {"x": 0.58, 'y':0.89}
+        size_hint: .1, .1
+        text_size: self.size
+        font_size: self.height*0.5
+        color: 71,71,71,1
+    #水质
+    Label
+        id: main_WaterQuality_Label
+        pos_hint: {"x": 0.58, 'y':0.78}
+        size_hint: .1, .1
+        text_size: self.size
+        font_size: self.height*0.5
+        text: 'good'
+        color: 71,71,71,1
+    #温度
+    Label
+        id: main_temperature_Label
+        pos_hint: {"x": 0.78, 'y':0.89}
+        size_hint: .1, .1
+        text_size: self.size
+        font_size: self.height*0.5
+        text : '25'
+        color: 71,71,71,1
+    #湿度
+    Label
+        id: main_Hum_Label
+        pos_hint: {"x": 0.78, 'y':0.78}
+        size_hint: .1, .1
+        text_size: self.size
+        font_size: self.height*0.5
+        text: 'good'
+        color: 71,71,71,1
+    #信号
+    Image
+        source: 'data/icons/singal/4.png'
+        pos_hint: {"x": .87, 'y': .82}
+        size_hint: None, None
+        allow_stretch: False
+        keep_ratio: True
+    Button:
+        size_hint: 0.17625, 0.282
+        pos_hint: {"x": .2088125, 'y': .25}
+        background_normal:  "data/icons/main/easy.jpg"
+        background_down:    "data/icons/main/easy.jpg"
+        on_release: app.on_easy_screen()
+    Button:
+        size_hint: 0.17625, 0.282
+        pos_hint: {"x": .4088125, 'y': .25}
+        background_normal:  "data/icons/main/profession.jpg"
+        background_down:    "data/icons/main/profession.jpg"
+    Button:
+        size_hint: 0.17625, 0.282
+        pos_hint: {"x": .6088125, 'y': .25}
+        background_normal:  "data/icons/main/setting.jpg"
+        background_down:    "data/icons/main/setting.jpg"

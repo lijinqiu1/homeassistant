@@ -1,0 +1,88 @@
+<EasyFloatLayout>
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'data/icons/easy/background.jpg'
+    Button:
+        size_hint: 0.12625, 0.134
+        pos_hint: {"x": .01, 'y': .85}
+        background_normal:  "data/icons/return.jpg"
+        background_down:    "data/icons/return.jpg"
+        on_press: app.on_main_screen()
+    #PM 2.5
+    Label
+        id: main_atmosphere_Label
+        pos_hint: {"x": 0.58, 'y':0.89}
+        size_hint: .1, .1
+        text_size: self.size
+        font_size: self.height*0.5
+        color: 71,71,71,1
+    #水质
+    Label
+        id: main_WaterQuality_Label
+        pos_hint: {"x": 0.58, 'y':0.78}
+        size_hint: .1, .1
+        text_size: self.size
+        font_size: self.height*0.5
+        text: 'good'
+        color: 71,71,71,1
+    #温度
+    Label
+        id: main_temperature_Label
+        pos_hint: {"x": 0.78, 'y':0.89}
+        size_hint: .1, .1
+        text_size: self.size
+        font_size: self.height*0.5
+        text : '25'
+        color: 71,71,71,1
+    #湿度
+    Label
+        id: main_Hum_Label
+        pos_hint: {"x": 0.78, 'y':0.78}
+        size_hint: .1, .1
+        text_size: self.size
+        font_size: self.height*0.5
+        text: 'good'
+        color: 71,71,71,1
+    #信号
+    Image
+        source: 'data/icons/singal/4.png'
+        pos_hint: {"x": .87, 'y': .82}
+        size_hint: None, None
+        allow_stretch: False
+        keep_ratio: True
+
+    #左
+    Button:
+        size_hint: 0.0575, 0.092
+        pos_hint: {"x": .07125, 'y': .35}
+        background_normal:  "data/icons/easy/left.png"
+        background_down:    "data/icons/easy/left.png"
+    #右
+    Button:
+        size_hint: 0.0575, 0.092
+        pos_hint: {"x": .87125, 'y': .35}
+        background_normal:  "data/icons/easy/right.png"
+        background_down:    "data/icons/easy/right.png"
+
+#    Image:
+#        size: self.size
+#        source: "data/icons/easy/mode_background.jpg"
+ 
+    ScreenManager:
+        size_hint: (None,None)
+        id: easy
+        Screen:
+            pos_hint: 0.5 , 0.5
+            name: 'mode'
+            id: mode
+            FloatLayout:
+                Image:
+                    size: self.size
+                    pos_hint: {"x": .5, 'y': .5}
+                    source: "data/icons/easy/mode_background.jpg"
+#                Label:
+#                    size_hint: 0.68125, 0.578
+#                    pos_hint: {"x": .5, 'y': .5}
+#                    text: 'good'

@@ -1,0 +1,17 @@
+#:import random random.random
+
+BoxLayout:
+    orientation: 'vertical'
+    ScreenManager:
+        id: sm
+    Button:
+        id: door_control
+        size_hint: 1, 0.167
+        pos_hint: {"x": 0, 'y': 0}
+        background_normal:  "data/icons/door/open.png"
+        background_down:    "data/icons/door/open.png"
+        on_press: app.on_door_control()
+
+
+
+
