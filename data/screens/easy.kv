@@ -59,30 +59,59 @@
         pos_hint: {"x": .07125, 'y': .35}
         background_normal:  "data/icons/easy/left.png"
         background_down:    "data/icons/easy/left.png"
+        on_release: root.go_previous_screen()
+
     #右
     Button:
         size_hint: 0.0575, 0.092
         pos_hint: {"x": .87125, 'y': .35}
         background_normal:  "data/icons/easy/right.png"
         background_down:    "data/icons/easy/right.png"
+        on_release: root.go_next_screen()
 
-#    Image:
-#        size: self.size
-#        source: "data/icons/easy/mode_background.jpg"
- 
     ScreenManager:
-        size_hint: (None,None)
         id: easy
         Screen:
-            pos_hint: 0.5 , 0.5
             name: 'mode'
             id: mode
             FloatLayout:
-                Image:
-                    size: self.size
-                    pos_hint: {"x": .5, 'y': .5}
-                    source: "data/icons/easy/mode_background.jpg"
-#                Label:
-#                    size_hint: 0.68125, 0.578
-#                    pos_hint: {"x": .5, 'y': .5}
-#                    text: 'good'
+                canvas.before:
+                    Rectangle:
+                        pos: 173,50
+                        size: 454,289
+#                        size: self.width*0.5675,self.height*0.578
+                        source: "data/icons/easy/mode_background.jpg"
+                Button:
+                    id: mode_day
+                    size_hint: 0.08875, 0.416
+                    pos_hint: {"x": .24, 'y': .21}
+                    background_normal:  "data/icons/easy/day.jpg"
+                    background_down:    "data/icons/easy/day.jpg"
+                Button:
+                    id: mode_night
+                    size_hint: 0.08625, 0.416
+                    pos_hint: {"x": .39, 'y': .21}
+                    background_normal:  "data/icons/easy/night.jpg"
+                    background_down:    "data/icons/easy/night.jpg"
+                Button:
+                    id: mode_sleep
+                    size_hint: 0.08125, 0.416
+                    pos_hint: {"x": .54, 'y': .21}
+                    background_normal:  "data/icons/easy/sleep.jpg"
+                    background_down:    "data/icons/easy/sleep.jpg"
+                Button:
+                    id: mode_romantic
+                    size_hint: 0.07875, 0.416
+                    pos_hint: {"x": .68, 'y': .21}
+                    background_normal:  "data/icons/easy/romantic.jpg"
+                    background_down:    "data/icons/easy/romantic.jpg"
+
+        Screen:
+            name: 'cover'
+            id: cover
+            FloatLayout:
+                canvas.before:
+                    Rectangle:
+                        pos: 173,150
+                        size: 456,142
+                        source: "data/icons/easy/cover_background.jpg"
