@@ -1,0 +1,73 @@
+<ProfessionFloatLayout>
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'data/icons/profession/background.jpg'
+
+    Button:
+        size_hint: 0.12625,0.134
+        pos_hint: {"x": 0.015, 'y': 0.84}
+        background_normal:  "data/icons/profession/return.jpg"
+        background_down:    "data/icons/profession/return.jpg"
+        on_press: app.on_main_screen()
+
+    Button:
+        id: environment_button
+        size_hint: 0.165,0.09
+        pos_hint:{"x": 0.175, 'y': 0.862}
+        background_normal:  "data/icons/profession/environment.jpg"
+        background_down:    "data/icons/profession/environment.jpg"
+        on_press: root.on_environment_selected()
+
+    Button:
+        id: lights_button
+        size_hint: 0.1575,0.09
+        pos_hint:{"x": 0.39625, 'y': 0.862}
+        background_normal:  "data/icons/profession/lights.jpg"
+        background_down:    "data/icons/profession/lights.jpg"
+        on_press: root.on_lights_selected()
+
+    Button:
+        id: atmosphere_button
+        size_hint: 0.12875,0.09
+        pos_hint:{"x": 0.6175, 'y': 0.862}
+        background_normal:  "data/icons/profession/atmosphere.jpg"
+        background_down:    "data/icons/profession/atmosphere.jpg"
+        on_press: root.on_atmosphere_selected()
+
+    Button:
+        id: cover_button
+        size_hint: 0.1525,0.09
+        pos_hint:{"x": .8, 'y': 0.862}
+        background_normal:  "data/icons/profession/cover.jpg"
+        background_down:    "data/icons/profession/cover.jpg"
+        on_press: root.on_cover_button_selected()
+
+    #左
+    Button:
+        size_hint: 0.0575, 0.092
+        pos_hint: {"x": 0.03375, 'y': 0.386}
+        background_normal:  "data/icons/profession/left.jpg"
+        background_down:    "data/icons/profession/left.jpg"
+        on_release: root.go_previous_screen()
+
+    #右
+    Button:
+        size_hint: 0.0575, 0.092
+        pos_hint: {"x": 0.91375, 'y': 0.386}
+        background_normal:  "data/icons/profession/right.jpg"
+        background_down:    "data/icons/profession/right.jpg"
+        on_release: root.go_next_screen()
+
+    ScreenManager
+        id: sm_profession
+        Screen:
+            name: 'air'
+            id: air
+            FloatLayout:
+                canvas.before:
+                    Rectangle:
+                        pos: 120,102
+                        size: 560,233
+                        source: 'data/icons/profession/air/background_off.jpg'

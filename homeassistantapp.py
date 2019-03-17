@@ -6,12 +6,13 @@ from kivy.config import Config
 
 from main import MainFloatLayout
 from easy import EasyFloatLayout
+from profession import ProfessionFloatLayout
 
 Config.write()
 
 kivy.resources.resource_add_path("data/font")
-# Config.set('graphics', 'width', '800')
-# Config.set('graphics', 'height', '600')
+Config.set('graphics', 'width', '800')
+Config.set('graphics', 'height', '600')
 
 
 class Homeassistant(App):
@@ -28,14 +29,21 @@ class Homeassistant(App):
         easy_screen.add_widget(easy)
         self.root.ids.sm.add_widget(easy_screen)
 
+        profession = ProfessionFloatLayout()
+        profession_screen = Screen(name='profession')
+        profession_screen.add_widget(profession)
+        self.root.ids.sm.add_widget(profession_screen)
+
         self.root.ids.sm.current = 'main'
 
-        self.bind(on_easy_screen=main.on_easy_screen)
-        self.bind(on_main_screen=easy.on_main_screen)
 
     def on_easy_screen(self):
         self.root.ids.sm.transition.direction = 'left'
         self.root.ids.sm.current = 'easy'
+
+    def on_profession_screen(self):
+        self.root.ids.sm.transition.direction = 'left'
+        self.root.ids.sm.current = 'profession'
 
     def on_main_screen(self):
         self.root.ids.sm.transition.direction = 'right'

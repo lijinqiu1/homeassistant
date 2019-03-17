@@ -7,8 +7,8 @@
     Button:
         size_hint: 0.12625, 0.134
         pos_hint: {"x": .01, 'y': .85}
-        background_normal:  "data/icons/return.jpg"
-        background_down:    "data/icons/return.jpg"
+        background_normal:  "data/icons/easy/return.jpg"
+        background_down:    "data/icons/easy/return.jpg"
         on_press: app.on_main_screen()
     #PM 2.5
     Label
@@ -77,7 +77,6 @@
                     Rectangle:
                         pos: 173,50
                         size: 454,289
-#                        size: self.width*0.5675,self.height*0.578
                         source: "data/icons/easy/mode_background.jpg"
                 Button:
                     id: button_mode_day
