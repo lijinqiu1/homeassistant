@@ -68,6 +68,16 @@
             FloatLayout:
                 canvas.before:
                     Rectangle:
-                        pos: 120,102
-                        size: 560,233
+#                        pos: 120,102
+#                        size: 560,233
+                        pos: root.width*0.15,root.height*0.204
+                        size: root.width*0.7,root.height*0.466
                         source: 'data/icons/profession/air/background_off.jpg'
+
+                Button:
+                    id: button_air_switch
+                    size_hint: 0.0375, 0.06
+                    pos_hint: {"x": 0.69125, 'y': 0.55}
+                    background_normal:  "data/icons/profession/air/off.jpg"
+                    background_down:    "data/icons/profession/air/off.jpg"
+
