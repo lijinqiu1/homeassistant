@@ -62,22 +62,80 @@
 
     ScreenManager
         id: sm_profession
-        Screen:
-            name: 'air'
-            id: air
+        Screen
+            name: 'environment_air'
+            id: environment_air
             FloatLayout:
+                id: air_FloatLayout
                 canvas.before:
                     Rectangle:
-#                        pos: 120,102
-#                        size: 560,233
                         pos: root.width*0.15,root.height*0.204
                         size: root.width*0.7,root.height*0.466
                         source: 'data/icons/profession/air/background_off.jpg'
 
                 Button:
-                    id: button_air_switch
+                    id: air_switch_button
                     size_hint: 0.0375, 0.06
                     pos_hint: {"x": 0.69125, 'y': 0.55}
                     background_normal:  "data/icons/profession/air/off.jpg"
                     background_down:    "data/icons/profession/air/off.jpg"
+                    on_press: root.on_air_switch_selected()
 
+        Screen:
+            name: 'environment_floor_heating'
+            id: environment_floor_heating
+            FloatLayout:
+                id: floor_heating_FloatLayout
+                canvas.before:
+                    Rectangle:
+                        pos: root.width*0.15,root.height*0.204
+                        size: root.width*0.7,root.height*0.466
+                        source: 'data/icons/profession/floor_heating/background_off.jpg'
+
+                Button:
+                    id: floor_heating_switch_button
+                    size_hint: 0.0375, 0.06
+                    pos_hint: {"x": 0.69125, 'y': 0.55}
+                    background_normal:  "data/icons/profession/floor_heating/off.jpg"
+                    background_down:    "data/icons/profession/floor_heating/off.jpg"
+                    on_press: root.on_floor_heating_switch_selected()
+
+                Button:
+                    id: floor_heating_level_1_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.29625, 'y': 0.274}
+                    background_normal:  "data/icons/profession/floor_heating/switch_disable.jpg"
+                    background_down:    "data/icons/profession/floor_heating/switch_disable.jpg"
+                    on_press: root.on_floor_heating_level_selected('1')
+
+                Button:
+                    id: floor_heating_level_2_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.385, 'y': 0.274}
+                    background_normal:  "data/icons/profession/floor_heating/switch_disable.jpg"
+                    background_down:    "data/icons/profession/floor_heating/switch_disable.jpg"
+                    on_press: root.on_floor_heating_level_selected('2')
+
+                Button:
+                    id: floor_heating_level_3_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.47375, 'y': 0.274}
+                    background_normal:  "data/icons/profession/floor_heating/switch_disable.jpg"
+                    background_down:    "data/icons/profession/floor_heating/switch_disable.jpg"
+                    on_press: root.on_floor_heating_level_selected('3')
+
+                Button:
+                    id: floor_heating_level_4_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.56125, 'y': 0.274}
+                    background_normal:  "data/icons/profession/floor_heating/switch_disable.jpg"
+                    background_down:    "data/icons/profession/floor_heating/switch_disable.jpg"
+                    on_press: root.on_floor_heating_level_selected('4')
+
+                Button:
+                    id: floor_heating_level_5_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.65, 'y': 0.274}
+                    background_normal:  "data/icons/profession/floor_heating/switch_disable.jpg"
+                    background_down:    "data/icons/profession/floor_heating/switch_disable.jpg"
+                    on_press: root.on_floor_heating_level_selected('5')

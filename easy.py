@@ -24,7 +24,7 @@ class EasyFloatLayout(FloatLayout):
         pass
 
     def go_previous_screen(self):
-        self.ids.sm_easy.transition.direction = 'left'
+        self.ids.sm_easy.transition.direction = 'right'
         if self.screen_index == 0:
             self.ids.sm_easy.current = 'screen_cover'
             self.screen_index = 1
@@ -33,7 +33,7 @@ class EasyFloatLayout(FloatLayout):
             self.screen_index = 0
 
     def go_next_screen(self):
-        self.ids.sm_easy.transition.direction = 'right'
+        self.ids.sm_easy.transition.direction = 'left'
         if self.screen_index == 0:
             self.ids.sm_easy.current = 'screen_cover'
             self.screen_index = 1
