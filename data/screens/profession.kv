@@ -59,9 +59,10 @@
         background_normal:  "data/icons/profession/right.jpg"
         background_down:    "data/icons/profession/right.jpg"
         on_release: root.go_next_screen()
-
+    #专家模式主页
     ScreenManager
         id: sm_profession
+        #新风
         Screen
             name: 'environment_air'
             id: environment_air
@@ -80,7 +81,7 @@
                     background_normal:  "data/icons/profession/air/off.jpg"
                     background_down:    "data/icons/profession/air/off.jpg"
                     on_press: root.on_air_switch_selected()
-
+        #地暖
         Screen:
             name: 'environment_floor_heating'
             id: environment_floor_heating
@@ -139,7 +140,7 @@
                     background_normal:  "data/icons/profession/floor_heating/switch_disable.jpg"
                     background_down:    "data/icons/profession/floor_heating/switch_disable.jpg"
                     on_press: root.on_floor_heating_level_selected('5')
-
+        #空调
         Screen:
             name: 'environment_climate'
             id: environment_climate
@@ -187,14 +188,25 @@
                     id: climate_up_button
                     size_hint: 0.0575, 0.092
                     pos_hint: {"x": 0.76, 'y': 0.356}
-                    background_normal:  "data/icons/profession/climate/switch_disable.jpg"
-                    background_down:    "data/icons/profession/climate/switch_disable.jpg"
+                    background_normal:  "data/icons/profession/climate/up_disable.jpg"
+                    background_down:    "data/icons/profession/climate/up_disable.jpg"
                     on_press: root.on_climate_temp_selected('up')
 
                 Button:
                     id: climate_down_button
                     size_hint: 0.0575, 0.092
                     pos_hint: {"x": 0.76, 'y': 0.206}
-                    background_normal:  "data/icons/profession/climate/switch_disable.jpg"
-                    background_down:    "data/icons/profession/climate/switch_disable.jpg"
+                    background_normal:  "data/icons/profession/climate/down_disable.jpg"
+                    background_down:    "data/icons/profession/climate/down_disable.jpg"
                     on_press: root.on_climate_temp_selected('down')
+
+        Screen:
+            name: 'lights_bedroom'
+            id: lights_bedroom
+            FloatLayout:
+                id: lights_bedroom_FloatLayout
+                canvas.before:
+                    Rectangle:
+                        pos: root.width*0.15,root.height*0.204
+                        size: root.width*0.7,root.height*0.466
+                        source: 'data/icons/profession/lights/bedroom_background_off.jpg'

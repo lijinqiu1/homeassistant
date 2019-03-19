@@ -110,6 +110,8 @@ class ProfessionFloatLayout(FloatLayout):
             self.ids.sm_profession.current = 'environment_floor_heating'
         elif self.ids.sm_profession.current == 'environment_floor_heating':
             self.ids.sm_profession.current = 'environment_climate'
+        elif self.ids.sm_profession.current == 'environment_climate':
+            self.ids.sm_profession.current = 'lights_bedroom'
 
     def go_previous_screen(self):
         # if self.profession_current_screen == 'environment':
@@ -157,6 +159,8 @@ class ProfessionFloatLayout(FloatLayout):
             self.ids.sm_profession.current = 'environment_air'
         elif self.ids.sm_profession.current == 'environment_climate':
             self.ids.sm_profession.current = 'environment_floor_heating'
+        elif self.ids.sm_profession.current == 'lights_bedroom':
+            self.ids.sm_profession.current = 'environment_climate'
 
     def on_air_switch_selected(self):
         if self.profession_air_switch == 0:
@@ -333,13 +337,13 @@ class ProfessionFloatLayout(FloatLayout):
             self.ids.climate_dry_button.background_down = \
                 "data/icons/profession/climate/switch_disable.jpg"
             self.ids.climate_up_button.background_normal = \
-                "data/icons/profession/climate/switch_disable.jpg"
+                "data/icons/profession/climate/up_disable.jpg"
             self.ids.climate_up_button.background_down = \
-                "data/icons/profession/climate/switch_disable.jpg"
+                "data/icons/profession/climate/up_disable.jpg"
             self.ids.climate_down_button.background_normal = \
-                "data/icons/profession/climate/switch_disable.jpg"
+                "data/icons/profession/climate/down_disable.jpg"
             self.ids.climate_down_button.background_down = \
-                "data/icons/profession/climate/switch_disable.jpg"
+                "data/icons/profession/climate/down_disable.jpg"
 
     def on_climate_mode_selected(self, *args):
         self.ids.climate_heat_button.background_normal = "data/icons/profession/climate/select.jpg"
@@ -361,5 +365,5 @@ class ProfessionFloatLayout(FloatLayout):
             self.ids.climate_dry_button.background_down = "data/icons/profession/climate/selected.jpg"
             self.profession_climate_mode = 'dry'
 
-    def on_climate_temp_selected(self,*args):
+    def on_climate_temp_selected(self, *args):
         pass
