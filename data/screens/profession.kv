@@ -18,7 +18,7 @@
         pos_hint:{"x": 0.175, 'y': 0.862}
         background_normal:  "data/icons/profession/environment.jpg"
         background_down:    "data/icons/profession/environment.jpg"
-        on_press: root.on_type_selected(0)
+        on_press: root.on_type_selected(1)
 
     Button:
         id: lights_button
@@ -26,7 +26,7 @@
         pos_hint:{"x": 0.39625, 'y': 0.862}
         background_normal:  "data/icons/profession/lights.jpg"
         background_down:    "data/icons/profession/lights.jpg"
-        on_press: root.on_type_selected(1)
+        on_press: root.on_type_selected(2)
 
     Button:
         id: atmosphere_button
@@ -34,7 +34,7 @@
         pos_hint:{"x": 0.6175, 'y': 0.862}
         background_normal:  "data/icons/profession/atmosphere.jpg"
         background_down:    "data/icons/profession/atmosphere.jpg"
-        on_press: root.on_type_selected(2)
+        on_press: root.on_type_selected(3)
 
     Button:
         id: cover_button
@@ -42,7 +42,7 @@
         pos_hint:{"x": .8, 'y': 0.862}
         background_normal:  "data/icons/profession/cover.jpg"
         background_down:    "data/icons/profession/cover.jpg"
-        on_press: root.on_type_selected(3)
+        on_press: root.on_type_selected(4)
 
     #左
     Button:
@@ -843,4 +843,243 @@
                         size: root.width*0.7,root.height*0.666
                         source: 'data/icons/profession/cover/left_background.jpg'
 
+                Button:
+                    id: cover_left_action_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.28375, 'y': 0.394}
+                    background_normal:  "data/icons/profession/cover/switch.jpg"
+                    background_down:    "data/icons/profession/cover/switch.jpg"
+                    on_press: root.on_cover_left_action_button()
 
+
+                Button:
+                    id: cover_left_up_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.20125, 'y': 0.134}
+                    background_normal:  "data/icons/profession/cover/up.jpg"
+                    background_down:    "data/icons/profession/cover/up.jpg"
+                    on_press: root.on_cover_left_move_button(1)
+
+                Button:
+                    id: cover_left_stop_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.28375, 'y': 0.134}
+                    background_normal:  "data/icons/profession/cover/stop.jpg"
+                    background_down:    "data/icons/profession/cover/stop.jpg"
+                    on_press: root.on_cover_left_move_button(2)
+
+                Button:
+                    id: cover_left_down_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.36625, 'y': 0.134}
+                    background_normal:  "data/icons/profession/cover/down.jpg"
+                    background_down:    "data/icons/profession/cover/down.jpg"
+                    on_press: root.on_cover_left_move_button(3)
+
+                Button:
+                    id: cover_left_postion_5_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.75375, 'y': 0.638}
+                    background_normal:  "data/icons/profession/cover/switch.jpg"
+                    background_down:    "data/icons/profession/cover/switch.jpg"
+                    on_press: root.on_cover_left_postion_button(5)
+
+                Button:
+                    id: cover_left_postion_4_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.75375, 'y': 0.512}
+                    background_normal:  "data/icons/profession/cover/switch.jpg"
+                    background_down:    "data/icons/profession/cover/switch.jpg"
+                    on_press: root.on_cover_left_postion_button(4)
+
+                Button:
+                    id: cover_left_postion_3_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.75375, 'y': 0.386}
+                    background_normal:  "data/icons/profession/cover/switch.jpg"
+                    background_down:    "data/icons/profession/cover/switch.jpg"
+                    on_press: root.on_cover_left_postion_button(3)
+
+                Button:
+                    id: cover_left_postion_2_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.75375, 'y': 0.26}
+                    background_normal:  "data/icons/profession/cover/switch.jpg"
+                    background_down:    "data/icons/profession/cover/switch.jpg"
+                    on_press: root.on_cover_left_postion_button(2)
+
+                Button:
+                    id: cover_left_postion_1_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.75375, 'y': 0.134}
+                    background_normal:  "data/icons/profession/cover/switch.jpg"
+                    background_down:    "data/icons/profession/cover/switch.jpg"
+                    on_press: root.on_cover_left_postion_button(1)
+
+        Screen:
+            name: 'cover_right'
+            id: cover_right
+            FloatLayout:
+                id: cover_right_FloatLayout
+                canvas.before:
+                    Rectangle:
+                        pos: root.width*0.15,root.height*0.096
+                        size: root.width*0.7,root.height*0.666
+                        source: 'data/icons/profession/cover/right_background.jpg'
+
+                Button:
+                    id: cover_right_action_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.28375, 'y': 0.394}
+                    background_normal:  "data/icons/profession/cover/switch.jpg"
+                    background_down:    "data/icons/profession/cover/switch.jpg"
+                    on_press: root.on_cover_right_action_button()
+
+
+                Button:
+                    id: cover_right_up_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.20125, 'y': 0.134}
+                    background_normal:  "data/icons/profession/cover/up.jpg"
+                    background_down:    "data/icons/profession/cover/up.jpg"
+                    on_press: root.on_cover_right_move_button(1)
+
+                Button:
+                    id: cover_right_stop_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.28375, 'y': 0.134}
+                    background_normal:  "data/icons/profession/cover/stop.jpg"
+                    background_down:    "data/icons/profession/cover/stop.jpg"
+                    on_press: root.on_cover_right_move_button(2)
+
+                Button:
+                    id: cover_right_down_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.36625, 'y': 0.134}
+                    background_normal:  "data/icons/profession/cover/down.jpg"
+                    background_down:    "data/icons/profession/cover/down.jpg"
+                    on_press: root.on_cover_right_move_button(3)
+
+                Button:
+                    id: cover_right_postion_5_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.75375, 'y': 0.638}
+                    background_normal:  "data/icons/profession/cover/switch.jpg"
+                    background_down:    "data/icons/profession/cover/switch.jpg"
+                    on_press: root.on_cover_right_postion_button(5)
+
+                Button:
+                    id: cover_right_postion_4_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.75375, 'y': 0.512}
+                    background_normal:  "data/icons/profession/cover/switch.jpg"
+                    background_down:    "data/icons/profession/cover/switch.jpg"
+                    on_press: root.on_cover_right_postion_button(4)
+
+                Button:
+                    id: cover_right_postion_3_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.75375, 'y': 0.386}
+                    background_normal:  "data/icons/profession/cover/switch.jpg"
+                    background_down:    "data/icons/profession/cover/switch.jpg"
+                    on_press: root.on_cover_right_postion_button(3)
+
+                Button:
+                    id: cover_right_postion_2_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.75375, 'y': 0.26}
+                    background_normal:  "data/icons/profession/cover/switch.jpg"
+                    background_down:    "data/icons/profession/cover/switch.jpg"
+                    on_press: root.on_cover_right_postion_button(2)
+
+                Button:
+                    id: cover_right_postion_1_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.75375, 'y': 0.134}
+                    background_normal:  "data/icons/profession/cover/switch.jpg"
+                    background_down:    "data/icons/profession/cover/switch.jpg"
+                    on_press: root.on_cover_right_postion_button(1)
+
+        Screen:
+            name: 'cover_bashroom'
+            id: cover_bashroom
+            FloatLayout:
+                id: cover_bashroom_FloatLayout
+                canvas.before:
+                    Rectangle:
+                        pos: root.width*0.15,root.height*0.096
+                        size: root.width*0.7,root.height*0.666
+                        source: 'data/icons/profession/cover/bashroom_background.jpg'
+
+                Button:
+                    id: cover_bashroom_action_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.28375, 'y': 0.394}
+                    background_normal:  "data/icons/profession/cover/switch.jpg"
+                    background_down:    "data/icons/profession/cover/switch.jpg"
+                    on_press: root.on_cover_bashroom_action_button()
+
+
+                Button:
+                    id: cover_bashroom_up_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.20125, 'y': 0.134}
+                    background_normal:  "data/icons/profession/cover/up.jpg"
+                    background_down:    "data/icons/profession/cover/up.jpg"
+                    on_press: root.on_cover_bashroom_move_button(1)
+
+                Button:
+                    id: cover_bashroom_stop_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.28375, 'y': 0.134}
+                    background_normal:  "data/icons/profession/cover/stop.jpg"
+                    background_down:    "data/icons/profession/cover/stop.jpg"
+                    on_press: root.on_cover_bashroom_move_button(2)
+
+                Button:
+                    id: cover_bashroom_down_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.36625, 'y': 0.134}
+                    background_normal:  "data/icons/profession/cover/down.jpg"
+                    background_down:    "data/icons/profession/cover/down.jpg"
+                    on_press: root.on_cover_bashroom_move_button(3)
+
+                Button:
+                    id: cover_bashroom_postion_5_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.75375, 'y': 0.638}
+                    background_normal:  "data/icons/profession/cover/switch.jpg"
+                    background_down:    "data/icons/profession/cover/switch.jpg"
+                    on_press: root.on_cover_bashroom_postion_button(5)
+
+                Button:
+                    id: cover_bashroom_postion_4_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.75375, 'y': 0.512}
+                    background_normal:  "data/icons/profession/cover/switch.jpg"
+                    background_down:    "data/icons/profession/cover/switch.jpg"
+                    on_press: root.on_cover_bashroom_postion_button(4)
+
+                Button:
+                    id: cover_bashroom_postion_3_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.75375, 'y': 0.386}
+                    background_normal:  "data/icons/profession/cover/switch.jpg"
+                    background_down:    "data/icons/profession/cover/switch.jpg"
+                    on_press: root.on_cover_bashroom_postion_button(3)
+
+                Button:
+                    id: cover_bashroom_postion_2_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.75375, 'y': 0.26}
+                    background_normal:  "data/icons/profession/cover/switch.jpg"
+                    background_down:    "data/icons/profession/cover/switch.jpg"
+                    on_press: root.on_cover_bashroom_postion_button(2)
+
+                Button:
+                    id: cover_bashroom_postion_1_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.75375, 'y': 0.134}
+                    background_normal:  "data/icons/profession/cover/switch.jpg"
+                    background_down:    "data/icons/profession/cover/switch.jpg"
+                    on_press: root.on_cover_bashroom_postion_button(1)
