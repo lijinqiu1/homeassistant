@@ -210,3 +210,228 @@
                         pos: root.width*0.15,root.height*0.204
                         size: root.width*0.7,root.height*0.466
                         source: 'data/icons/profession/lights/bedroom_background_off.jpg'
+
+                Button:
+                    id: lights_bedroom_switch_button
+                    size_hint: 0.0375, 0.06
+                    pos_hint: {"x": 0.69125, 'y': 0.55}
+                    background_normal:  "data/icons/profession/lights/off.jpg"
+                    background_down:    "data/icons/profession/lights/off.jpg"
+                    on_press: root.on_lights_bedroom_switch_selected()
+
+                Button:
+                    id: lights_bedroom_level_1_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.29625, 'y': 0.274}
+                    background_normal:  "data/icons/profession/lights/switch_disable.jpg"
+                    background_down:    "data/icons/profession/lights/switch_disable.jpg"
+                    on_press: root.on_lights_bedroom_level_selected(1)
+
+                Button:
+                    id: lights_bedroom_level_2_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.385, 'y': 0.274}
+                    background_normal:  "data/icons/profession/lights/switch_disable.jpg"
+                    background_down:    "data/icons/profession/lights/switch_disable.jpg"
+                    on_press: root.on_lights_bedroom_level_selected(2)
+
+                Button:
+                    id: lights_bedroom_level_3_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.47375, 'y': 0.274}
+                    background_normal:  "data/icons/profession/lights/switch_disable.jpg"
+                    background_down:    "data/icons/profession/lights/switch_disable.jpg"
+                    on_press: root.on_lights_bedroom_level_selected(3)
+
+                Button:
+                    id: lights_bedroom_level_4_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.56125, 'y': 0.274}
+                    background_normal:  "data/icons/profession/lights/switch_disable.jpg"
+                    background_down:    "data/icons/profession/lights/switch_disable.jpg"
+                    on_press: root.on_lights_bedroom_level_selected(4)
+
+                Button:
+                    id: lights_bedroom_level_5_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.65, 'y': 0.274}
+                    background_normal:  "data/icons/profession/lights/switch_disable.jpg"
+                    background_down:    "data/icons/profession/lights/switch_disable.jpg"
+                    on_press: root.on_lights_bedroom_level_selected(5)
+
+        Screen:
+            name: 'lights_livingroom'
+            id: lights_livingroom
+            FloatLayout:
+                id: lights_livingroom_FloatLayout
+                canvas.before:
+                    Rectangle:
+                        pos: root.width*0.15,root.height*0.204
+                        size: root.width*0.7,root.height*0.466
+                        source: 'data/icons/profession/lights/livingroom_background_off.jpg'
+
+                Button:
+                    id: lights_livingroom_switch_button
+                    size_hint: 0.0375, 0.06
+                    pos_hint: {"x": 0.69125, 'y': 0.55}
+                    background_normal:  "data/icons/profession/lights/off.jpg"
+                    background_down:    "data/icons/profession/lights/off.jpg"
+                    on_press: root.on_lights_livingroom_switch_selected()
+
+                Button:
+                    id: lights_livingroom_level_1_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.29625, 'y': 0.274}
+                    background_normal:  "data/icons/profession/lights/switch_disable.jpg"
+                    background_down:    "data/icons/profession/lights/switch_disable.jpg"
+                    on_press: root.on_lights_livingroom_level_selected(1)
+
+                Button:
+                    id: lights_livingroom_level_2_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.385, 'y': 0.274}
+                    background_normal:  "data/icons/profession/lights/switch_disable.jpg"
+                    background_down:    "data/icons/profession/lights/switch_disable.jpg"
+                    on_press: root.on_lights_livingroom_level_selected(2)
+
+                Button:
+                    id: lights_livingroom_level_3_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.47375, 'y': 0.274}
+                    background_normal:  "data/icons/profession/lights/switch_disable.jpg"
+                    background_down:    "data/icons/profession/lights/switch_disable.jpg"
+                    on_press: root.on_lights_livingroom_level_selected(3)
+
+                Button:
+                    id: lights_livingroom_level_4_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.56125, 'y': 0.274}
+                    background_normal:  "data/icons/profession/lights/switch_disable.jpg"
+                    background_down:    "data/icons/profession/lights/switch_disable.jpg"
+                    on_press: root.on_lights_livingroom_level_selected(4)
+
+                Button:
+                    id: lights_livingroom_level_5_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.65, 'y': 0.274}
+                    background_normal:  "data/icons/profession/lights/switch_disable.jpg"
+                    background_down:    "data/icons/profession/lights/switch_disable.jpg"
+                    on_press: root.on_lights_livingroom_level_selected(5)
+
+        Screen:
+            name: 'lights_vestibule'
+            id: lights_vestibule
+            FloatLayout:
+                id: lights_vestibule_FloatLayout
+                canvas.before:
+                    Rectangle:
+                        pos: root.width*0.15,root.height*0.204
+                        size: root.width*0.7,root.height*0.466
+                        source: 'data/icons/profession/lights/vestibule_background_off.jpg'
+
+                Button:
+                    id: lights_vestibule_switch_button
+                    size_hint: 0.0375, 0.06
+                    pos_hint: {"x": 0.69125, 'y': 0.55}
+                    background_normal:  "data/icons/profession/lights/off.jpg"
+                    background_down:    "data/icons/profession/lights/off.jpg"
+                    on_press: root.on_lights_vestibule_switch_selected()
+
+                Button:
+                    id: lights_vestibule_level_1_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.29625, 'y': 0.274}
+                    background_normal:  "data/icons/profession/lights/switch_disable.jpg"
+                    background_down:    "data/icons/profession/lights/switch_disable.jpg"
+                    on_press: root.on_lights_vestibule_level_selected(1)
+
+                Button:
+                    id: lights_vestibule_level_2_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.385, 'y': 0.274}
+                    background_normal:  "data/icons/profession/lights/switch_disable.jpg"
+                    background_down:    "data/icons/profession/lights/switch_disable.jpg"
+                    on_press: root.on_lights_vestibule_level_selected(2)
+
+                Button:
+                    id: lights_vestibule_level_3_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.47375, 'y': 0.274}
+                    background_normal:  "data/icons/profession/lights/switch_disable.jpg"
+                    background_down:    "data/icons/profession/lights/switch_disable.jpg"
+                    on_press: root.on_lights_vestibule_level_selected(3)
+
+                Button:
+                    id: lights_vestibule_level_4_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.56125, 'y': 0.274}
+                    background_normal:  "data/icons/profession/lights/switch_disable.jpg"
+                    background_down:    "data/icons/profession/lights/switch_disable.jpg"
+                    on_press: root.on_lights_vestibule_level_selected(4)
+
+                Button:
+                    id: lights_vestibule_level_5_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.65, 'y': 0.274}
+                    background_normal:  "data/icons/profession/lights/switch_disable.jpg"
+                    background_down:    "data/icons/profession/lights/switch_disable.jpg"
+                    on_press: root.on_lights_vestibule_level_selected(5)
+
+        Screen:
+            name: 'lights_bashroom'
+            id: lights_bashroom
+            FloatLayout:
+                id: lights_bashroom_FloatLayout
+                canvas.before:
+                    Rectangle:
+                        pos: root.width*0.15,root.height*0.204
+                        size: root.width*0.7,root.height*0.466
+                        source: 'data/icons/profession/lights/bashroom_background_off.jpg'
+
+                Button:
+                    id: lights_bashroom_switch_button
+                    size_hint: 0.0375, 0.06
+                    pos_hint: {"x": 0.69125, 'y': 0.55}
+                    background_normal:  "data/icons/profession/lights/off.jpg"
+                    background_down:    "data/icons/profession/lights/off.jpg"
+                    on_press: root.on_lights_bashroom_switch_selected()
+
+                Button:
+                    id: lights_bashroom_level_1_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.29625, 'y': 0.274}
+                    background_normal:  "data/icons/profession/lights/switch_disable.jpg"
+                    background_down:    "data/icons/profession/lights/switch_disable.jpg"
+                    on_press: root.on_lights_bashroom_level_selected(1)
+
+                Button:
+                    id: lights_bashroom_level_2_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.385, 'y': 0.274}
+                    background_normal:  "data/icons/profession/lights/switch_disable.jpg"
+                    background_down:    "data/icons/profession/lights/switch_disable.jpg"
+                    on_press: root.on_lights_bashroom_level_selected(2)
+
+                Button:
+                    id: lights_bashroom_level_3_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.47375, 'y': 0.274}
+                    background_normal:  "data/icons/profession/lights/switch_disable.jpg"
+                    background_down:    "data/icons/profession/lights/switch_disable.jpg"
+                    on_press: root.on_lights_bashroom_level_selected(3)
+
+                Button:
+                    id: lights_bashroom_level_4_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.56125, 'y': 0.274}
+                    background_normal:  "data/icons/profession/lights/switch_disable.jpg"
+                    background_down:    "data/icons/profession/lights/switch_disable.jpg"
+                    on_press: root.on_lights_bashroom_level_selected(4)
+
+                Button:
+                    id: lights_bashroom_level_5_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.65, 'y': 0.274}
+                    background_normal:  "data/icons/profession/lights/switch_disable.jpg"
+                    background_down:    "data/icons/profession/lights/switch_disable.jpg"
+                    on_press: root.on_lights_bashroom_level_selected(5)
