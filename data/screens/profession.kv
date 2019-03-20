@@ -18,7 +18,7 @@
         pos_hint:{"x": 0.175, 'y': 0.862}
         background_normal:  "data/icons/profession/environment.jpg"
         background_down:    "data/icons/profession/environment.jpg"
-        on_press: root.on_environment_selected()
+        on_press: root.on_type_selected(0)
 
     Button:
         id: lights_button
@@ -26,7 +26,7 @@
         pos_hint:{"x": 0.39625, 'y': 0.862}
         background_normal:  "data/icons/profession/lights.jpg"
         background_down:    "data/icons/profession/lights.jpg"
-        on_press: root.on_lights_selected()
+        on_press: root.on_type_selected(1)
 
     Button:
         id: atmosphere_button
@@ -34,7 +34,7 @@
         pos_hint:{"x": 0.6175, 'y': 0.862}
         background_normal:  "data/icons/profession/atmosphere.jpg"
         background_down:    "data/icons/profession/atmosphere.jpg"
-        on_press: root.on_atmosphere_selected()
+        on_press: root.on_type_selected(2)
 
     Button:
         id: cover_button
@@ -42,7 +42,7 @@
         pos_hint:{"x": .8, 'y': 0.862}
         background_normal:  "data/icons/profession/cover.jpg"
         background_down:    "data/icons/profession/cover.jpg"
-        on_press: root.on_cover_button_selected()
+        on_press: root.on_type_selected(3)
 
     #左
     Button:
@@ -435,3 +435,412 @@
                     background_normal:  "data/icons/profession/lights/switch_disable.jpg"
                     background_down:    "data/icons/profession/lights/switch_disable.jpg"
                     on_press: root.on_lights_bashroom_level_selected(5)
+
+        Screen:
+            name: 'atmosphere_bedroom'
+            id: atmosphere_bedroom
+            FloatLayout:
+                id: atmosphere_bedroom_FloatLayout
+                canvas.before:
+                    Rectangle:
+                        pos: root.width*0.15,root.height*0.096
+                        size: root.width*0.7,root.height*0.666
+                        source: 'data/icons/profession/atmosphere/bedroom_background_off.jpg'
+
+                Button:
+                    id: atmosphere_bedroom_switch_button
+                    size_hint: 0.0375, 0.06
+                    pos_hint: {"x": 0.69125, 'y': 0.65}
+                    background_normal:  "data/icons/profession/atmosphere/off.jpg"
+                    background_down:    "data/icons/profession/atmosphere/off.jpg"
+                    on_press: root.on_atmosphere_bedroom_switch_selected()
+
+                Button:
+                    id: atmosphere_bedroom_color_1_button
+                    size_hint: 0.0675, 0.108
+                    pos_hint: {"x": 0.2925, 'y': 0.41}
+                    background_normal:  "data/icons/profession/atmosphere/color_1_off.jpg"
+                    background_down:    "data/icons/profession/atmosphere/color_1_off.jpg"
+                    on_press: root.on_atmosphere_bedroom_color_selected(1)
+
+                Button:
+                    id: atmosphere_bedroom_color_2_button
+                    size_hint: 0.0675, 0.108
+                    pos_hint: {"x": 0.38125, 'y': 0.41}
+                    background_normal:  "data/icons/profession/atmosphere/color_2_off.jpg"
+                    background_down:    "data/icons/profession/atmosphere/color_2_off.jpg"
+                    on_press: root.on_atmosphere_bedroom_color_selected(2)
+
+                Button:
+                    id: atmosphere_bedroom_color_3_button
+                    size_hint: 0.0675, 0.108
+                    pos_hint: {"x": 0.46875, 'y': 0.41}
+                    background_normal:  "data/icons/profession/atmosphere/color_3_off.jpg"
+                    background_down:    "data/icons/profession/atmosphere/color_3_off.jpg"
+                    on_press: root.on_atmosphere_bedroom_color_selected(3)
+
+                Button:
+                    id: atmosphere_bedroom_color_4_button
+                    size_hint: 0.0675, 0.108
+                    pos_hint: {"x": 0.5575, 'y': 0.41}
+                    background_normal:  "data/icons/profession/atmosphere/color_4_off.jpg"
+                    background_down:    "data/icons/profession/atmosphere/color_4_off.jpg"
+                    on_press: root.on_atmosphere_bedroom_color_selected(4)
+
+                Button:
+                    id: atmosphere_bedroom_color_5_button
+                    size_hint: 0.0675, 0.108
+                    pos_hint: {"x": 0.645, 'y': 0.41}
+                    background_normal:  "data/icons/profession/atmosphere/color_5_off.jpg"
+                    background_down:    "data/icons/profession/atmosphere/color_5_off.jpg"
+                    on_press: root.on_atmosphere_bedroom_color_selected(5)
+
+                Button:
+                    id: atmosphere_bedroom_level_1_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.29625, 'y': 0.194}
+                    background_normal:  "data/icons/profession/atmosphere/switch_disable.jpg"
+                    background_down:    "data/icons/profession/atmosphere/switch_disable.jpg"
+                    on_press: root.on_atmosphere_bedroom_level_selected(1)
+
+                Button:
+                    id: atmosphere_bedroom_level_2_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.38625, 'y': 0.194}
+                    background_normal:  "data/icons/profession/atmosphere/switch_disable.jpg"
+                    background_down:    "data/icons/profession/atmosphere/switch_disable.jpg"
+                    on_press: root.on_atmosphere_bedroom_level_selected(2)
+
+                Button:
+                    id: atmosphere_bedroom_level_3_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.475, 'y': 0.194}
+                    background_normal:  "data/icons/profession/atmosphere/switch_disable.jpg"
+                    background_down:    "data/icons/profession/atmosphere/switch_disable.jpg"
+                    on_press: root.on_atmosphere_bedroom_level_selected(3)
+
+                Button:
+                    id: atmosphere_bedroom_level_4_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.5625, 'y': 0.194}
+                    background_normal:  "data/icons/profession/atmosphere/switch_disable.jpg"
+                    background_down:    "data/icons/profession/atmosphere/switch_disable.jpg"
+                    on_press: root.on_atmosphere_bedroom_level_selected(4)
+
+                Button:
+                    id: atmosphere_bedroom_level_5_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.65, 'y': 0.194}
+                    background_normal:  "data/icons/profession/atmosphere/switch_disable.jpg"
+                    background_down:    "data/icons/profession/atmosphere/switch_disable.jpg"
+                    on_press: root.on_atmosphere_bedroom_level_selected(5)
+
+        Screen:
+            name: 'atmosphere_livingroom'
+            id: atmosphere_livingroom
+            FloatLayout:
+                id: atmosphere_livingroom_FloatLayout
+                canvas.before:
+                    Rectangle:
+                        pos: root.width*0.15,root.height*0.096
+                        size: root.width*0.7,root.height*0.666
+                        source: 'data/icons/profession/atmosphere/livingroom_background_off.jpg'
+
+                Button:
+                    id: atmosphere_livingroom_switch_button
+                    size_hint: 0.0375, 0.06
+                    pos_hint: {"x": 0.69125, 'y': 0.65}
+                    background_normal:  "data/icons/profession/atmosphere/off.jpg"
+                    background_down:    "data/icons/profession/atmosphere/off.jpg"
+                    on_press: root.on_atmosphere_livingroom_switch_selected()
+
+                Button:
+                    id: atmosphere_livingroom_color_1_button
+                    size_hint: 0.0675, 0.108
+                    pos_hint: {"x": 0.2925, 'y': 0.41}
+                    background_normal:  "data/icons/profession/atmosphere/color_1_off.jpg"
+                    background_down:    "data/icons/profession/atmosphere/color_1_off.jpg"
+                    on_press: root.on_atmosphere_livingroom_color_selected(1)
+
+                Button:
+                    id: atmosphere_livingroom_color_2_button
+                    size_hint: 0.0675, 0.108
+                    pos_hint: {"x": 0.38125, 'y': 0.41}
+                    background_normal:  "data/icons/profession/atmosphere/color_2_off.jpg"
+                    background_down:    "data/icons/profession/atmosphere/color_2_off.jpg"
+                    on_press: root.on_atmosphere_livingroom_color_selected(2)
+
+                Button:
+                    id: atmosphere_livingroom_color_3_button
+                    size_hint: 0.0675, 0.108
+                    pos_hint: {"x": 0.46875, 'y': 0.41}
+                    background_normal:  "data/icons/profession/atmosphere/color_3_off.jpg"
+                    background_down:    "data/icons/profession/atmosphere/color_3_off.jpg"
+                    on_press: root.on_atmosphere_livingroom_color_selected(3)
+
+                Button:
+                    id: atmosphere_livingroom_color_4_button
+                    size_hint: 0.0675, 0.108
+                    pos_hint: {"x": 0.5575, 'y': 0.41}
+                    background_normal:  "data/icons/profession/atmosphere/color_4_off.jpg"
+                    background_down:    "data/icons/profession/atmosphere/color_4_off.jpg"
+                    on_press: root.on_atmosphere_livingroom_color_selected(4)
+
+                Button:
+                    id: atmosphere_livingroom_color_5_button
+                    size_hint: 0.0675, 0.108
+                    pos_hint: {"x": 0.645, 'y': 0.41}
+                    background_normal:  "data/icons/profession/atmosphere/color_5_off.jpg"
+                    background_down:    "data/icons/profession/atmosphere/color_5_off.jpg"
+                    on_press: root.on_atmosphere_livingroom_color_selected(5)
+
+                Button:
+                    id: atmosphere_livingroom_level_1_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.29625, 'y': 0.194}
+                    background_normal:  "data/icons/profession/atmosphere/switch_disable.jpg"
+                    background_down:    "data/icons/profession/atmosphere/switch_disable.jpg"
+                    on_press: root.on_atmosphere_livingroom_level_selected(1)
+
+                Button:
+                    id: atmosphere_livingroom_level_2_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.38625, 'y': 0.194}
+                    background_normal:  "data/icons/profession/atmosphere/switch_disable.jpg"
+                    background_down:    "data/icons/profession/atmosphere/switch_disable.jpg"
+                    on_press: root.on_atmosphere_livingroom_level_selected(2)
+
+                Button:
+                    id: atmosphere_livingroom_level_3_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.475, 'y': 0.194}
+                    background_normal:  "data/icons/profession/atmosphere/switch_disable.jpg"
+                    background_down:    "data/icons/profession/atmosphere/switch_disable.jpg"
+                    on_press: root.on_atmosphere_livingroom_level_selected(3)
+
+                Button:
+                    id: atmosphere_livingroom_level_4_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.5625, 'y': 0.194}
+                    background_normal:  "data/icons/profession/atmosphere/switch_disable.jpg"
+                    background_down:    "data/icons/profession/atmosphere/switch_disable.jpg"
+                    on_press: root.on_atmosphere_livingroom_level_selected(4)
+
+                Button:
+                    id: atmosphere_livingroom_level_5_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.65, 'y': 0.194}
+                    background_normal:  "data/icons/profession/atmosphere/switch_disable.jpg"
+                    background_down:    "data/icons/profession/atmosphere/switch_disable.jpg"
+                    on_press: root.on_atmosphere_livingroom_level_selected(5)
+
+        Screen:
+            name: 'atmosphere_vestibule'
+            id: atmosphere_vestibule
+            FloatLayout:
+                id: atmosphere_vestibule_FloatLayout
+                canvas.before:
+                    Rectangle:
+                        pos: root.width*0.15,root.height*0.096
+                        size: root.width*0.7,root.height*0.666
+                        source: 'data/icons/profession/atmosphere/vestibule_background_off.jpg'
+
+                Button:
+                    id: atmosphere_vestibule_switch_button
+                    size_hint: 0.0375, 0.06
+                    pos_hint: {"x": 0.69125, 'y': 0.65}
+                    background_normal:  "data/icons/profession/atmosphere/off.jpg"
+                    background_down:    "data/icons/profession/atmosphere/off.jpg"
+                    on_press: root.on_atmosphere_vestibule_switch_selected()
+
+                Button:
+                    id: atmosphere_vestibule_color_1_button
+                    size_hint: 0.0675, 0.108
+                    pos_hint: {"x": 0.2925, 'y': 0.41}
+                    background_normal:  "data/icons/profession/atmosphere/color_1_off.jpg"
+                    background_down:    "data/icons/profession/atmosphere/color_1_off.jpg"
+                    on_press: root.on_atmosphere_vestibule_color_selected(1)
+
+                Button:
+                    id: atmosphere_vestibule_color_2_button
+                    size_hint: 0.0675, 0.108
+                    pos_hint: {"x": 0.38125, 'y': 0.41}
+                    background_normal:  "data/icons/profession/atmosphere/color_2_off.jpg"
+                    background_down:    "data/icons/profession/atmosphere/color_2_off.jpg"
+                    on_press: root.on_atmosphere_vestibule_color_selected(2)
+
+                Button:
+                    id: atmosphere_vestibule_color_3_button
+                    size_hint: 0.0675, 0.108
+                    pos_hint: {"x": 0.46875, 'y': 0.41}
+                    background_normal:  "data/icons/profession/atmosphere/color_3_off.jpg"
+                    background_down:    "data/icons/profession/atmosphere/color_3_off.jpg"
+                    on_press: root.on_atmosphere_vestibule_color_selected(3)
+
+                Button:
+                    id: atmosphere_vestibule_color_4_button
+                    size_hint: 0.0675, 0.108
+                    pos_hint: {"x": 0.5575, 'y': 0.41}
+                    background_normal:  "data/icons/profession/atmosphere/color_4_off.jpg"
+                    background_down:    "data/icons/profession/atmosphere/color_4_off.jpg"
+                    on_press: root.on_atmosphere_vestibule_color_selected(4)
+
+                Button:
+                    id: atmosphere_vestibule_color_5_button
+                    size_hint: 0.0675, 0.108
+                    pos_hint: {"x": 0.645, 'y': 0.41}
+                    background_normal:  "data/icons/profession/atmosphere/color_5_off.jpg"
+                    background_down:    "data/icons/profession/atmosphere/color_5_off.jpg"
+                    on_press: root.on_atmosphere_vestibule_color_selected(5)
+
+                Button:
+                    id: atmosphere_vestibule_level_1_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.29625, 'y': 0.194}
+                    background_normal:  "data/icons/profession/atmosphere/switch_disable.jpg"
+                    background_down:    "data/icons/profession/atmosphere/switch_disable.jpg"
+                    on_press: root.on_atmosphere_vestibule_level_selected(1)
+
+                Button:
+                    id: atmosphere_vestibule_level_2_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.38625, 'y': 0.194}
+                    background_normal:  "data/icons/profession/atmosphere/switch_disable.jpg"
+                    background_down:    "data/icons/profession/atmosphere/switch_disable.jpg"
+                    on_press: root.on_atmosphere_vestibule_level_selected(2)
+
+                Button:
+                    id: atmosphere_vestibule_level_3_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.475, 'y': 0.194}
+                    background_normal:  "data/icons/profession/atmosphere/switch_disable.jpg"
+                    background_down:    "data/icons/profession/atmosphere/switch_disable.jpg"
+                    on_press: root.on_atmosphere_vestibule_level_selected(3)
+
+                Button:
+                    id: atmosphere_vestibule_level_4_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.5625, 'y': 0.194}
+                    background_normal:  "data/icons/profession/atmosphere/switch_disable.jpg"
+                    background_down:    "data/icons/profession/atmosphere/switch_disable.jpg"
+                    on_press: root.on_atmosphere_vestibule_level_selected(4)
+
+                Button:
+                    id: atmosphere_vestibule_level_5_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.65, 'y': 0.194}
+                    background_normal:  "data/icons/profession/atmosphere/switch_disable.jpg"
+                    background_down:    "data/icons/profession/atmosphere/switch_disable.jpg"
+                    on_press: root.on_atmosphere_vestibule_level_selected(5)
+
+        Screen:
+            name: 'atmosphere_bashroom'
+            id: atmosphere_bashroom
+            FloatLayout:
+                id: atmosphere_bashroom_FloatLayout
+                canvas.before:
+                    Rectangle:
+                        pos: root.width*0.15,root.height*0.096
+                        size: root.width*0.7,root.height*0.666
+                        source: 'data/icons/profession/atmosphere/bashroom_background_off.jpg'
+
+                Button:
+                    id: atmosphere_bashroom_switch_button
+                    size_hint: 0.0375, 0.06
+                    pos_hint: {"x": 0.69125, 'y': 0.65}
+                    background_normal:  "data/icons/profession/atmosphere/off.jpg"
+                    background_down:    "data/icons/profession/atmosphere/off.jpg"
+                    on_press: root.on_atmosphere_bashroom_switch_selected()
+
+                Button:
+                    id: atmosphere_bashroom_color_1_button
+                    size_hint: 0.0675, 0.108
+                    pos_hint: {"x": 0.2925, 'y': 0.41}
+                    background_normal:  "data/icons/profession/atmosphere/color_1_off.jpg"
+                    background_down:    "data/icons/profession/atmosphere/color_1_off.jpg"
+                    on_press: root.on_atmosphere_bashroom_color_selected(1)
+
+                Button:
+                    id: atmosphere_bashroom_color_2_button
+                    size_hint: 0.0675, 0.108
+                    pos_hint: {"x": 0.38125, 'y': 0.41}
+                    background_normal:  "data/icons/profession/atmosphere/color_2_off.jpg"
+                    background_down:    "data/icons/profession/atmosphere/color_2_off.jpg"
+                    on_press: root.on_atmosphere_bashroom_color_selected(2)
+
+                Button:
+                    id: atmosphere_bashroom_color_3_button
+                    size_hint: 0.0675, 0.108
+                    pos_hint: {"x": 0.46875, 'y': 0.41}
+                    background_normal:  "data/icons/profession/atmosphere/color_3_off.jpg"
+                    background_down:    "data/icons/profession/atmosphere/color_3_off.jpg"
+                    on_press: root.on_atmosphere_bashroom_color_selected(3)
+
+                Button:
+                    id: atmosphere_bashroom_color_4_button
+                    size_hint: 0.0675, 0.108
+                    pos_hint: {"x": 0.5575, 'y': 0.41}
+                    background_normal:  "data/icons/profession/atmosphere/color_4_off.jpg"
+                    background_down:    "data/icons/profession/atmosphere/color_4_off.jpg"
+                    on_press: root.on_atmosphere_bashroom_color_selected(4)
+
+                Button:
+                    id: atmosphere_bashroom_color_5_button
+                    size_hint: 0.0675, 0.108
+                    pos_hint: {"x": 0.645, 'y': 0.41}
+                    background_normal:  "data/icons/profession/atmosphere/color_5_off.jpg"
+                    background_down:    "data/icons/profession/atmosphere/color_5_off.jpg"
+                    on_press: root.on_atmosphere_bashroom_color_selected(5)
+
+                Button:
+                    id: atmosphere_bashroom_level_1_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.29625, 'y': 0.194}
+                    background_normal:  "data/icons/profession/atmosphere/switch_disable.jpg"
+                    background_down:    "data/icons/profession/atmosphere/switch_disable.jpg"
+                    on_press: root.on_atmosphere_bashroom_level_selected(1)
+
+                Button:
+                    id: atmosphere_bashroom_level_2_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.38625, 'y': 0.194}
+                    background_normal:  "data/icons/profession/atmosphere/switch_disable.jpg"
+                    background_down:    "data/icons/profession/atmosphere/switch_disable.jpg"
+                    on_press: root.on_atmosphere_bashroom_level_selected(2)
+
+                Button:
+                    id: atmosphere_bashroom_level_3_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.475, 'y': 0.194}
+                    background_normal:  "data/icons/profession/atmosphere/switch_disable.jpg"
+                    background_down:    "data/icons/profession/atmosphere/switch_disable.jpg"
+                    on_press: root.on_atmosphere_bashroom_level_selected(3)
+
+                Button:
+                    id: atmosphere_bashroom_level_4_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.5625, 'y': 0.194}
+                    background_normal:  "data/icons/profession/atmosphere/switch_disable.jpg"
+                    background_down:    "data/icons/profession/atmosphere/switch_disable.jpg"
+                    on_press: root.on_atmosphere_bashroom_level_selected(4)
+
+                Button:
+                    id: atmosphere_bashroom_level_5_button
+                    size_hint: 0.0575, 0.092
+                    pos_hint: {"x": 0.65, 'y': 0.194}
+                    background_normal:  "data/icons/profession/atmosphere/switch_disable.jpg"
+                    background_down:    "data/icons/profession/atmosphere/switch_disable.jpg"
+                    on_press: root.on_atmosphere_bashroom_level_selected(5)
+
+        Screen:
+            name: 'cover_left'
+            id: cover_left
+            FloatLayout:
+                id: cover_left_FloatLayout
+                canvas.before:
+                    Rectangle:
+                        pos: root.width*0.15,root.height*0.096
+                        size: root.width*0.7,root.height*0.666
+                        source: 'data/icons/profession/cover/left_background.jpg'
+
+
