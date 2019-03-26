@@ -12,7 +12,7 @@ Config.write()
 
 kivy.resources.resource_add_path("data/font")
 Config.set('graphics', 'width', '800')
-Config.set('graphics', 'height', '600')
+Config.set('graphics', 'height', '480')
 
 
 class Homeassistant(App):
@@ -35,7 +35,6 @@ class Homeassistant(App):
         self.root.ids.sm.add_widget(profession_screen)
 
         self.root.ids.sm.current = 'main'
-
 
     def on_easy_screen(self):
         self.root.ids.sm.transition.direction = 'left'

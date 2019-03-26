@@ -5,8 +5,8 @@
             size: self.size
             source: 'data/icons/easy/background.jpg'
     Button:
-        size_hint: 0.12625, 0.134
-        pos_hint: {"x": .01, 'y': .85}
+        size_hint: 0.12625, 0.176315
+        pos_hint: {"x": .01, 'y': .789}
         background_normal:  "data/icons/easy/return.jpg"
         background_down:    "data/icons/easy/return.jpg"
         on_press: app.on_main_screen()
@@ -45,24 +45,26 @@
     #信号
     Image
         id: image_singal
-        source: 'data/icons/singal/4.png'
-        pos_hint: {"x": .87, 'y': .82}
-        size_hint: None, None
-        allow_stretch: False
-        keep_ratio: True
+        source: 'data/icons/singal/4.jpg'
+        pos_hint: {"x": .91375, 'y': .860526}
+        size_hint: 0.04625, 0.089474
+#        pos: root.width*0.91375,root.height*0.860526
+#        size: root.width*0.04625,root.height*0.089474
+#        allow_stretch: False
+#        keep_ratio: True
 
     #左
     Button:
-        size_hint: 0.0575, 0.092
-        pos_hint: {"x": .07125, 'y': .35}
+        size_hint: 0.0575, 0.121
+        pos_hint: {"x": .03375, 'y': .31842}
         background_normal:  "data/icons/easy/left.png"
         background_down:    "data/icons/easy/left.png"
         on_release: root.go_previous_screen()
 
     #右
     Button:
-        size_hint: 0.0575, 0.092
-        pos_hint: {"x": .87125, 'y': .35}
+        size_hint: 0.0575, 0.121
+        pos_hint: {"x": .91, 'y': .31842}
         background_normal:  "data/icons/easy/right.png"
         background_down:    "data/icons/easy/right.png"
         on_release: root.go_next_screen()
@@ -75,34 +77,34 @@
             FloatLayout:
                 canvas.before:
                     Rectangle:
-                        pos: 173,50
-                        size: 454,289
+                        pos: root.width*0.21625,root.height*0.02368
+                        size: root.width*0.5675,root.height*0.663
                         source: "data/icons/easy/mode_background.jpg"
                 Button:
                     id: button_mode_day
-                    size_hint: 0.08875, 0.416
-                    pos_hint: {"x": .26, 'y': .21}
+                    size_hint: 0.08875, 0.51842
+                    pos_hint: {"x": .25, 'y': .09473}
                     background_normal:  "data/icons/easy/day.jpg"
                     background_down:    "data/icons/easy/day.jpg"
                     on_press: root.on_mode_day_selected()
                 Button:
                     id: button_mode_night
-                    size_hint: 0.08625, 0.416
-                    pos_hint: {"x": .40, 'y': .21}
+                    size_hint: 0.0775, 0.51842
+                    pos_hint: {"x": .40125, 'y': .09473}
                     background_normal:  "data/icons/easy/night.jpg"
                     background_down:    "data/icons/easy/night.jpg"
                     on_press: root.on_mode_night_selected()
                 Button:
                     id: button_mode_sleep
-                    size_hint: 0.08125, 0.416
-                    pos_hint: {"x": .53, 'y': .21}
+                    size_hint: 0.08125, 0.51842
+                    pos_hint: {"x": .5375, 'y': .09473}
                     background_normal:  "data/icons/easy/sleep.jpg"
                     background_down:    "data/icons/easy/sleep.jpg"
                     on_press: root.on_mode_sleep_selected()
                 Button:
                     id: button_mode_romantic
-                    size_hint: 0.07875, 0.416
-                    pos_hint: {"x": .67, 'y': .21}
+                    size_hint: 0.0725, 0.51842
+                    pos_hint: {"x": .67875, 'y': .09473}
                     background_normal:  "data/icons/easy/romantic.jpg"
                     background_down:    "data/icons/easy/romantic.jpg"
                     on_press: root.on_mode_romantic_selected()
@@ -113,37 +115,37 @@
             FloatLayout:
                 canvas.before:
                     Rectangle:
-                        pos: 173,150
-                        size: 456,142
+                        pos: root.width*0.21625,root.height*0.2
+                        size: root.width*0.5675,root.height*0.3736842
                         source: "data/icons/easy/cover_background.jpg"
 
             Button:
                 id: button_cover_open
-                size_hint: 0.0575, 0.092
-                pos_hint: {"x": .27, 'y': .35}
+                size_hint: 0.0575, 0.121
+                pos_hint: {"x": .265, 'y': .258}
                 background_normal:  "data/icons/easy/select.jpg"
                 background_down:    "data/icons/easy/select.jpg"
                 on_press: root.on_cover_open_selected()
 
             Button:
                 id: button_cover_half
-                size_hint: 0.0575, 0.092
-                pos_hint: {"x": .405, 'y': .35}
+                size_hint: 0.0575, 0.121
+                pos_hint: {"x": .40375, 'y': .258}
                 background_normal:  "data/icons/easy/select.jpg"
                 background_down:    "data/icons/easy/select.jpg"
                 on_press: root.on_cover_half_selected()
 
             Button:
                 id: button_cover_close
-                size_hint: 0.0575, 0.092
-                pos_hint: {"x": .545, 'y': .35}
+                size_hint: 0.0575, 0.121
+                pos_hint: {"x": .545, 'y': .258}
                 background_normal:  "data/icons/easy/select.jpg"
                 background_down:    "data/icons/easy/select.jpg"
                 on_press: root.on_cover_close_selected()
 
             Button:
                 id: button_cover_more
-                size_hint: 0.08, 0.092
-                pos_hint: {"x": .65, 'y': .36}
+                size_hint: 0.06, 0.0553
+                pos_hint: {"x": .68125, 'y': .3579}
                 background_normal:  "data/icons/easy/more.jpg"
                 background_down:    "data/icons/easy/more.jpg"

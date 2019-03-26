@@ -1,8 +1,9 @@
+# -*-coding:utf-8-*-
 from kivy.uix.floatlayout import FloatLayout
 from kivy.lang import Builder
 from kivy.clock import Clock
 import kivy
-
+from RsetAPI import RsetAPI
 Builder.load_file('data/screens/main.kv')
 
 kivy.resources.resource_add_path("data/font")
@@ -12,6 +13,7 @@ class MainFloatLayout(FloatLayout):
     def __init__(self, **kwargs):
         super(MainFloatLayout, self).__init__(**kwargs)
         Clock.schedule_interval(self._update_clock, 1 / 60.)
+        self.api = RsetAPI()
 
     def _update_clock(self,dt):
         self.ids.atmosphere_Label.text = 'bad'

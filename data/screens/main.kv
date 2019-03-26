@@ -41,25 +41,28 @@
         color: 71,71,71,1
     #信号
     Image
-        source: 'data/icons/singal/4.png'
-        pos_hint: {"x": .87, 'y': .82}
-        size_hint: None, None
-        allow_stretch: False
-        keep_ratio: True
+        source: 'data/icons/singal/4.jpg'
+#        pos_hint: {"x": .91375, 'y': .860526}
+        pos_hint: {"x": .91375, 'y': .860526}
+        size_hint: 0.04625, 0.089474
+#        pos: root.width*0.91375,root.height*0.860526
+#        size: root.width*0.04625,root.height*0.089474
+#        allow_stretch: False
+#        keep_ratio: True
     Button:
-        size_hint: 0.17625, 0.282
-        pos_hint: {"x": .12375, 'y': .278}
+        size_hint: 0.17625, 0.371
+        pos_hint: {"x": .12375, 'y': .16842}
         background_normal:  "data/icons/main/easy.jpg"
         background_down:    "data/icons/main/easy.jpg"
         on_release: app.on_easy_screen()
     Button:
-        size_hint: 0.17625, 0.282
-        pos_hint: {"x": .41125, 'y': .278}
+        size_hint: 0.17625, 0.371
+        pos_hint: {"x": .41125, 'y': .16842}
         background_normal:  "data/icons/main/profession.jpg"
         background_down:    "data/icons/main/profession.jpg"
         on_release: app.on_profession_screen()
     Button:
-        size_hint: 0.17625, 0.282
-        pos_hint: {"x": .69875, 'y': .278}
+        size_hint: 0.17625, 0.371
+        pos_hint: {"x": .69875, 'y': .16842}
         background_normal:  "data/icons/main/setting.jpg"
         background_down:    "data/icons/main/setting.jpg"
