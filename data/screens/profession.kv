@@ -152,6 +152,12 @@
                         size: root.width*0.7,root.height*0.70263
                         source: 'data/icons/profession/climate/background_off.jpg'
 
+                Image:
+                    id: cliamate_temp_number
+                    source: 'data/icons/profession/temp/off.jpg'
+                    pos_hint: {"x": 0.56, 'y': 0.23947368421052631578947368421053}
+                    size_hint: 0.17, 0.13157894736842105263157894736842
+
                 Button:
                     id: climate_switch_button
                     size_hint: 0.0375, 0.0789473
@@ -166,7 +172,7 @@
                     pos_hint: {"x": 0.2975, 'y': 0.09736842105263157894736842105263}
                     background_normal:  "data/icons/profession/climate/switch_disable.jpg"
                     background_down:    "data/icons/profession/climate/switch_disable.jpg"
-                    on_press: root.on_climate_mode_selected('heat')
+                    on_press: root.on_climate_mode_selected('HEAT')
 
                 Button:
                     id: climate_cool_button
@@ -174,7 +180,7 @@
                     pos_hint: {"x": 0.19875, 'y': 0.09736842105263157894736842105263}
                     background_normal:  "data/icons/profession/climate/switch_disable.jpg"
                     background_down:    "data/icons/profession/climate/switch_disable.jpg"
-                    on_press: root.on_climate_mode_selected('cool')
+                    on_press: root.on_climate_mode_selected('COOL')
 
                 Button:
                     id: climate_dry_button
@@ -182,7 +188,7 @@
                     pos_hint: {"x": 0.395, 'y': 0.09736842105263157894736842105263}
                     background_normal:  "data/icons/profession/climate/switch_disable.jpg"
                     background_down:    "data/icons/profession/climate/switch_disable.jpg"
-                    on_press: root.on_climate_mode_selected('dry')
+                    on_press: root.on_climate_mode_selected('DRY')
 
                 Button:
                     id: climate_up_button

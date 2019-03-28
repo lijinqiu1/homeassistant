@@ -3,11 +3,12 @@ import kivy
 from kivy.app import App
 from kivy.uix.screenmanager import Screen
 from kivy.config import Config
+from kivy.clock import Clock
 
 from main import MainFloatLayout
 from easy import EasyFloatLayout
 from profession import ProfessionFloatLayout
-
+from RsetAPI import RsetAPI
 Config.write()
 
 kivy.resources.resource_add_path("data/font")
@@ -16,9 +17,14 @@ Config.set('graphics', 'height', '480')
 
 
 class Homeassistant(App):
+    def __init__(self, **kwargs):
+        super(Homeassistant, self).__init__(**kwargs)
+        self.api = RsetAPI()
+        self.men_xi = 'men_xi'
+        self.door_state = 'close'
+        Clock.schedule_interval(self._update_clock, 1)
 
     def build(self):
-
         main = MainFloatLayout()
         main_screen = Screen(name='main')
         main_screen.add_widget(main)
@@ -49,8 +55,25 @@ class Homeassistant(App):
         self.root.ids.sm.current = 'main'
 
     def on_door_control(self):
-        self.root.ids.door_control.background_normal = "data/icons/door/opened.jpg"
-        self.root.ids.door_control.background_down = "data/icons/door/opened.jpg"
+        if self.door_state == 'close':
+            self.root.ids.door_control.background_normal = "data/icons/door/opening.jpg"
+            self.root.ids.door_control.background_down = "data/icons/door/opening.jpg"
+            self.api.set_switch_off(self.men_xi)
+            self.door_state = 'opening'
+        elif self.door_state == 'opened':
+            self.api.set_switch_on(self.men_xi)
+            self.door_state = 'close'
+
+    def _update_clock(self, dt):
+        if self.api.get_switch_state(self.men_xi) == 'on':
+            if self.door_state == 'opened':
+                self.door_state = 'close'
+                self.root.ids.door_control.background_normal = "data/icons/door/open.jpg"
+                self.root.ids.door_control.background_down = "data/icons/door/open.jpg"
+        elif self.api.get_switch_state(self.men_xi) == 'off':
+            self.door_state = 'opened'
+            self.root.ids.door_control.background_normal = "data/icons/door/opened.jpg"
+            self.root.ids.door_control.background_down = "data/icons/door/opened.jpg"
 
 
 if __name__ == '__main__':

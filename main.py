@@ -12,7 +12,7 @@ kivy.resources.resource_add_path("data/font")
 class MainFloatLayout(FloatLayout):
     def __init__(self, **kwargs):
         super(MainFloatLayout, self).__init__(**kwargs)
-        Clock.schedule_interval(self._update_clock, 1 / 60.)
+        Clock.schedule_interval(self._update_clock, 1)
         self.api = RsetAPI()
 
     def _update_clock(self,dt):

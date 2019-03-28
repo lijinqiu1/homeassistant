@@ -2,6 +2,7 @@ from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.boxlayout import BoxLayout
 from kivy.lang import Builder
 from kivy.uix.screenmanager import Screen, ScreenManager, SlideTransition
+from RsetAPI import RsetAPI
 
 Builder.load_file('data/screens/easy.kv')
 
@@ -9,6 +10,7 @@ Builder.load_file('data/screens/easy.kv')
 class EasyFloatLayout(FloatLayout):
     def __init__(self, **kwargs):
         super(EasyFloatLayout, self).__init__(**kwargs)
+        self.api = RsetAPI()
         self.ids.sm_easy.current = 'screen_mode'
         self.screen_index = 0
         self.current_mode = 'day'
@@ -108,6 +110,10 @@ class EasyFloatLayout(FloatLayout):
         self.ids.button_cover_close.background_normal = 'data/icons/easy/select.jpg'
         self.ids.button_cover_close.background_down = 'data/icons/easy/select.jpg'
 
+        self.api.set_cover_open('left_cover')
+        self.api.set_cover_open('right_cover')
+        self.api.set_cover_open('bashroom_cover')
+
     def on_cover_half_selected(self):
         self.current_cover = 'half'
         self.ids.button_cover_open.background_normal = 'data/icons/easy/select.jpg'
@@ -119,6 +125,10 @@ class EasyFloatLayout(FloatLayout):
         self.ids.button_cover_close.background_normal = 'data/icons/easy/select.jpg'
         self.ids.button_cover_close.background_down = 'data/icons/easy/select.jpg'
 
+        self.api.set_cover_position('left_cover', 50)
+        self.api.set_cover_position('right_cover', 50)
+        self.api.set_cover_position('bashroom_cover', 50)
+
     def on_cover_close_selected(self):
         self.current_cover = 'close'
         self.ids.button_cover_open.background_normal = 'data/icons/easy/select.jpg'
@@ -129,4 +139,8 @@ class EasyFloatLayout(FloatLayout):
 
         self.ids.button_cover_close.background_normal = 'data/icons/easy/selected.jpg'
         self.ids.button_cover_close.background_down = 'data/icons/easy/selected.jpg'
+
+        self.api.set_cover_close('left_cover')
+        self.api.set_cover_close('right_cover')
+        self.api.set_cover_close('bashroom_cover')
 
