@@ -155,7 +155,35 @@ class RsetAPI():
             return None
 
     def set_group_light_on(self, light, brightness, rgb_color):
-        body = {"entity_id": "group." + light, "brightness": brightness, "rgb_color": rgb_color}
+        body = {"entity_id": "light." + light + '_color_lights',
+                "brightness": brightness,
+                "rgb_color": rgb_color}
+        response = post(self.url + 'services/light/turn_on', data=json.dumps(body), headers=self.headers)
+        if response.status_code == 200:
+            return True
+        else:
+            return False
+
+    def set_group_light_switch_on(self, light):
+        body = {"entity_id": "light." + light + '_color_lights'}
+        response = post(self.url + 'services/light/turn_on', data=json.dumps(body), headers=self.headers)
+        if response.status_code == 200:
+            return True
+        else:
+            return False
+
+    def set_group_light_brightness(self, light, brightness):
+        body = {"entity_id": "light." + light + '_color_lights',
+                "brightness": brightness}
+        response = post(self.url + 'services/light/turn_on', data=json.dumps(body), headers=self.headers)
+        if response.status_code == 200:
+            return True
+        else:
+            return False
+
+    def set_group_light_color(self, light, rgb_color):
+        body = {"entity_id": "light." + light + '_color_lights',
+                "rgb_color": rgb_color}
         response = post(self.url + 'services/light/turn_on', data=json.dumps(body), headers=self.headers)
         if response.status_code == 200:
             return True
@@ -163,7 +191,7 @@ class RsetAPI():
             return False
 
     def set_group_light_off(self, light):
-        body = {"entity_id": "group." + light}
+        body = {"entity_id": "light." + light + '_color_lights'}
         response = post(self.url + 'services/light/turn_off', data=json.dumps(body), headers=self.headers)
         if response.status_code == 200:
             return True
@@ -174,6 +202,36 @@ class RsetAPI():
         response = get(self.url + 'states/light.' + light + '_color_lights', headers=self.headers)
         if response.status_code == 200:
             return json.loads(response.text)
+        else:
+            return False
+
+    def get_light_color(self, light):
+        response = get(self.url + 'states/input_select.' + light + '_color_light_rgb_setting', headers=self.headers)
+        if response.status_code == 200:
+            return json.loads(response.text)['state']
+        else:
+            return False
+
+    def get_light_brightness(self, light):
+        response = get(self.url + 'states/input_select.' + light + '_color_light_brightness_setting', headers=self.headers)
+        if response.status_code == 200:
+            return json.loads(response.text)['state']
+        else:
+            return False
+
+    def set_light_color(self, light, arg):
+        body = {"entity_id": "input_select." + light + '_color_light_rgb_setting', 'option': arg}
+        response = post(self.url + 'services/input_select/select_option', data=json.dumps(body), headers=self.headers)
+        if response.status_code == 200:
+            return True
+        else:
+            return False
+
+    def set_light_brightness(self, light, arg):
+        body = {"entity_id": "input_select." + light + '_color_light_brightness_setting', 'option': arg}
+        response = post(self.url + 'services/input_select/select_option', data=json.dumps(body), headers=self.headers)
+        if response.status_code == 200:
+            return True
         else:
             return False
 
@@ -248,10 +306,12 @@ class RsetAPI():
 
 if __name__ == '__main__':
     api = RsetAPI()
-    entity_id = 'left_cover'
-    # brightness = 50
-    # rgb_color = [255, 0, 0]
-    # request = api.set_group_light_on(entity_id,brightness,rgb_color)
-    request = api.set_ac_mode('COOL')
-    print request
+    entity_id = 'bedroom'
+    brightness = 50
+    rgb_color = [154, 254, 209]
+
+    request = api.set_group_light_color(entity_id, rgb_color)
+    for n in range(0, 10):
+        state = api.get_group_light_state(entity_id)['attributes']['rgb_color']
+        print state
 
