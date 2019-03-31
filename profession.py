@@ -86,6 +86,8 @@ class ProfessionFloatLayout(FloatLayout):
                     "data/icons/profession/climate/down_disable.jpg"
                 self.ids.climate_down_button.background_down = \
                     "data/icons/profession/climate/down_disable.jpg"
+
+                self.ids.cliamate_temp_number.source = 'data/icons/profession/temp/off.jpg'
         else:
             if self.profession_climate_switch == 0:
                 self.profession_climate_switch = 1
