@@ -1,8 +1,7 @@
 from kivy.uix.floatlayout import FloatLayout
-from kivy.uix.boxlayout import BoxLayout
 from kivy.lang import Builder
-from kivy.uix.screenmanager import Screen, ScreenManager, SlideTransition
 from RsetAPI import RsetAPI
+from kivy.clock import Clock
 
 Builder.load_file('data/screens/easy.kv')
 
@@ -21,6 +20,13 @@ class EasyFloatLayout(FloatLayout):
 
         self.ids.button_cover_open.background_normal = 'data/icons/easy/selected.jpg'
         self.ids.button_cover_open.background_down = 'data/icons/easy/selected.jpg'
+
+        Clock.schedule_interval(self._update_clock, 30)
+
+    def _update_clock(self,dt):
+        temp = self.api.get_temp()
+        if temp:
+            self.ids.Label.text = '[color=#6E6E6E]'+temp+'[/color]'
 
     def on_main_screen(self):
         pass
@@ -57,6 +63,8 @@ class EasyFloatLayout(FloatLayout):
         self.ids.button_mode_romantic.background_normal = 'data/icons/easy/romantic.jpg'
         self.ids.button_mode_romantic.background_down = 'data/icons/easy/romantic.jpg'
 
+        self.api.set_home_mode('DAY')
+
     def on_mode_night_selected(self):
         self.current_mode = 'night'
         self.ids.button_mode_day.background_normal = 'data/icons/easy/day.jpg'
@@ -70,6 +78,7 @@ class EasyFloatLayout(FloatLayout):
 
         self.ids.button_mode_romantic.background_normal = 'data/icons/easy/romantic.jpg'
         self.ids.button_mode_romantic.background_down = 'data/icons/easy/romantic.jpg'
+        self.api.set_home_mode('NIGHT')
 
     def on_mode_sleep_selected(self):
         self.current_mode = 'sleep'
@@ -84,6 +93,7 @@ class EasyFloatLayout(FloatLayout):
 
         self.ids.button_mode_romantic.background_normal = 'data/icons/easy/romantic.jpg'
         self.ids.button_mode_romantic.background_down = 'data/icons/easy/romantic.jpg'
+        self.api.set_home_mode('SLEEP')
 
     def on_mode_romantic_selected(self):
         self.current_mode = 'romantic'
@@ -98,6 +108,7 @@ class EasyFloatLayout(FloatLayout):
 
         self.ids.button_mode_romantic.background_normal = 'data/icons/easy/romantic_h.jpg'
         self.ids.button_mode_romantic.background_down = 'data/icons/easy/romantic_h.jpg'
+        self.api.set_home_mode('ROMANTIC')
 
     def on_cover_open_selected(self):
         self.current_cover = 'open'
@@ -110,9 +121,9 @@ class EasyFloatLayout(FloatLayout):
         self.ids.button_cover_close.background_normal = 'data/icons/easy/select.jpg'
         self.ids.button_cover_close.background_down = 'data/icons/easy/select.jpg'
 
-        self.api.set_cover_open('left_cover')
-        self.api.set_cover_open('right_cover')
-        self.api.set_cover_open('bashroom_cover')
+        self.api.set_cover_position('left', 'LEVEL_ONE')
+        self.api.set_cover_position('right', 'LEVEL_ONE')
+        self.api.set_cover_position('bashroom', 'LEVEL_ONE')
 
     def on_cover_half_selected(self):
         self.current_cover = 'half'
@@ -125,9 +136,9 @@ class EasyFloatLayout(FloatLayout):
         self.ids.button_cover_close.background_normal = 'data/icons/easy/select.jpg'
         self.ids.button_cover_close.background_down = 'data/icons/easy/select.jpg'
 
-        self.api.set_cover_position('left_cover', 50)
-        self.api.set_cover_position('right_cover', 50)
-        self.api.set_cover_position('bashroom_cover', 50)
+        self.api.set_cover_position('left', 'LEVEL_THREE')
+        self.api.set_cover_position('right', 'LEVEL_THREE')
+        self.api.set_cover_position('bashroom', 'LEVEL_THREE')
 
     def on_cover_close_selected(self):
         self.current_cover = 'close'
@@ -140,7 +151,7 @@ class EasyFloatLayout(FloatLayout):
         self.ids.button_cover_close.background_normal = 'data/icons/easy/selected.jpg'
         self.ids.button_cover_close.background_down = 'data/icons/easy/selected.jpg'
 
-        self.api.set_cover_close('left_cover')
-        self.api.set_cover_close('right_cover')
-        self.api.set_cover_close('bashroom_cover')
+        self.api.set_cover_position('left', 'LEVEL_FIVE')
+        self.api.set_cover_position('right', 'LEVEL_FIVE')
+        self.api.set_cover_position('bashroom', 'LEVEL_FIVE')
 

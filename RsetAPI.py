@@ -5,7 +5,7 @@ import json
 
 class RsetAPI():
     def __init__(self):
-        self.url = 'http://192.168.199.129:8123/api/'
+        self.url = 'http://192.168.1.2:8123/api/'
         self.headers = {
             'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTA2NzIzOTAsImlzcyI6ImVmYmU5YWFhMWZlYzQ4YTNhOGVkZTNjNTU2YWE4MTU1IiwiZXhwIjoxODY2MDMyMzkwfQ.GlA1Qb0LmIWqSvkTSgv_7bUyMxq5IfU1kPR9PBBCb5Y',
             'content-type': 'application/json'
@@ -105,15 +105,15 @@ class RsetAPI():
             return False
 
     def set_cover_position(self, cover, position):
-        body = {"entity_id": "input_number." + cover + '_set_position', 'value': position}
-        response = post(self.url + 'services/input_number/set_value', data=json.dumps(body), headers=self.headers)
+        body = {"entity_id": "input_select." + cover + '_position_setting', 'option': position}
+        response = post(self.url + 'services/input_select/select_option', data=json.dumps(body), headers=self.headers)
         if response.status_code == 200:
             return True
         else:
             return False
 
     def get_cover_position(self, cover):
-        response = get(self.url + 'states/input_number.'+cover + '_position', headers=self.headers)
+        response = get(self.url + 'states/input_select.'+cover + '_position', headers=self.headers)
         if response.status_code == 200:
             return json.loads(response.text)['state']
         else:
@@ -298,6 +298,14 @@ class RsetAPI():
     def set_ac_temp(self, arg):
         body = {"entity_id": "input_number.air_conditioner_temp", 'value': arg}
         response = post(self.url + 'services/input_number/set_value', data=json.dumps(body), headers=self.headers)
+        if response.status_code == 200:
+            return True
+        else:
+            return False
+
+    def set_home_mode(self, arg):
+        body = {"entity_id": "input_select.home_mode_setting", 'option': arg}
+        response = post(self.url + 'services/input_select/select_option', data=json.dumps(body), headers=self.headers)
         if response.status_code == 200:
             return True
         else:
