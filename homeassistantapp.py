@@ -1,6 +1,6 @@
 # -*-coding:utf-8-*-
 import platform
-if platform.machine() == 'armv7l':
+if platform.machine() == 'armv6l':
     import os
     os.environ['KIVY_GL_BACKEND'] = 'gl'
     os.environ['KIVY_BCM_DISPMANX_ID'] = '2'
