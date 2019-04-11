@@ -76,11 +76,30 @@
 
                 Button:
                     id: air_switch_button
-                    size_hint: 0.0375, 0.078947
-                    pos_hint: {"x": 0.69125, 'y': 0.5168421}
-                    background_normal:  "data/icons/profession/air/off.jpg"
-                    background_down:    "data/icons/profession/air/off.jpg"
+                    size_hint: 0.0575, 0.12105263157894736842105263157895
+                    pos_hint: {"x": 0.76125, 'y': 0.51842105263157894736842105263158}
+                    background_normal:  "data/icons/profession/air/off.png"
+                    background_down:    "data/icons/profession/air/off.png"
                     on_press: root.on_air_switch_selected()
+        #雨棚
+        Screen
+            name: 'environment_canopy'
+            id: environment_canopy
+            FloatLayout:
+                id: canopy_FloatLayout
+                canvas.before:
+                    Rectangle:
+                        pos: root.width*0.15,root.height*0.0815789
+                        size: root.width*0.7,root.height*0.58684
+                        source: 'data/icons/profession/canopy/background_off.png'
+
+                Button:
+                    id: canopy_switch_button
+                    size_hint: 0.0575, 0.12105263157894736842105263157895
+                    pos_hint: {"x": 0.76125, 'y': 0.51842105263157894736842105263158}
+                    background_normal:  "data/icons/profession/canopy/off.png"
+                    background_down:    "data/icons/profession/canopy/off.png"
+                    on_press: root.on_canopy_switch_selected()
         #地暖
         Screen:
             name: 'environment_floor_heating'
@@ -95,10 +114,10 @@
 
                 Button:
                     id: floor_heating_switch_button
-                    size_hint: 0.0375, 0.078947
-                    pos_hint: {"x": 0.69125, 'y': 0.5168421}
-                    background_normal:  "data/icons/profession/floor_heating/off.jpg"
-                    background_down:    "data/icons/profession/floor_heating/off.jpg"
+                    size_hint: 0.0575, 0.12105263157894736842105263157895
+                    pos_hint: {"x": 0.76125, 'y': 0.51842105263157894736842105263158}
+                    background_normal:  "data/icons/profession/floor_heating/off.png"
+                    background_down:    "data/icons/profession/floor_heating/off.png"
                     on_press: root.on_floor_heating_switch_selected()
 
                 Button:
@@ -150,7 +169,7 @@
                     Rectangle:
                         pos: root.width*0.15,root.height*0.0421
                         size: root.width*0.7,root.height*0.70263
-                        source: 'data/icons/profession/climate/background_off.jpg'
+                        source: 'data/icons/profession/climate/background_off.png'
 
                 Image:
                     id: cliamate_temp_number
@@ -160,10 +179,10 @@
 
                 Button:
                     id: climate_switch_button
-                    size_hint: 0.0375, 0.0789473
-                    pos_hint: {"x": 0.69125, 'y': 0.586842}
-                    background_normal:  "data/icons/profession/climate/off.jpg"
-                    background_down:    "data/icons/profession/climate/off.jpg"
+                    size_hint: 0.0575, 0.12105263157894736842105263157895
+                    pos_hint: {"x": 0.76125, 'y': 0.56842105263157894736842105263158}
+                    background_normal:  "data/icons/profession/climate/off.png"
+                    background_down:    "data/icons/profession/climate/off.png"
                     on_press: root.on_climate_switch_selected()
 
                 Button:
@@ -215,14 +234,14 @@
                     Rectangle:
                         pos: root.width*0.15,root.height*0.0815789
                         size: root.width*0.7,root.height*0.58684
-                        source: 'data/icons/profession/lights/bedroom_background_off.jpg'
+                        source: 'data/icons/profession/lights/bedroom_background_off.png'
 
                 Button:
                     id: lights_bedroom_switch_button
-                    size_hint: 0.0375, 0.078947
-                    pos_hint: {"x": 0.69125, 'y': 0.5168421}
-                    background_normal:  "data/icons/profession/lights/off.jpg"
-                    background_down:    "data/icons/profession/lights/off.jpg"
+                    size_hint: 0.0575, 0.12105263157894736842105263157895
+                    pos_hint: {"x": 0.76125, 'y': 0.5025641025641025641025641025641}
+                    background_normal:  "data/icons/profession/lights/off.png"
+                    background_down:    "data/icons/profession/lights/off.png"
                     on_press: root.on_lights_bedroom_switch_selected()
 
                 Button:
@@ -274,14 +293,14 @@
                     Rectangle:
                         pos: root.width*0.15,root.height*0.0815789
                         size: root.width*0.7,root.height*0.58684
-                        source: 'data/icons/profession/lights/livingroom_background_off.jpg'
+                        source: 'data/icons/profession/lights/livingroom_background_off.png'
 
                 Button:
                     id: lights_livingroom_switch_button
-                    size_hint: 0.0375, 0.078947
-                    pos_hint: {"x": 0.69125, 'y': 0.5168421}
-                    background_normal:  "data/icons/profession/lights/off.jpg"
-                    background_down:    "data/icons/profession/lights/off.jpg"
+                    size_hint: 0.0575, 0.12105263157894736842105263157895
+                    pos_hint: {"x": 0.76125, 'y': 0.5025641025641025641025641025641}
+                    background_normal:  "data/icons/profession/lights/off.png"
+                    background_down:    "data/icons/profession/lights/off.png"
                     on_press: root.on_lights_livingroom_switch_selected()
 
                 Button:
@@ -333,14 +352,14 @@
                     Rectangle:
                         pos: root.width*0.15,root.height*0.0815789
                         size: root.width*0.7,root.height*0.58684
-                        source: 'data/icons/profession/lights/vestibule_background_off.jpg'
+                        source: 'data/icons/profession/lights/vestibule_background_off.png'
 
                 Button:
                     id: lights_vestibule_switch_button
-                    size_hint: 0.0375, 0.078947
-                    pos_hint: {"x": 0.69125, 'y': 0.5168421}
-                    background_normal:  "data/icons/profession/lights/off.jpg"
-                    background_down:    "data/icons/profession/lights/off.jpg"
+                    size_hint: 0.0575, 0.12105263157894736842105263157895
+                    pos_hint: {"x": 0.76125, 'y': 0.5025641025641025641025641025641}
+                    background_normal:  "data/icons/profession/lights/off.png"
+                    background_down:    "data/icons/profession/lights/off.png"
                     on_press: root.on_lights_vestibule_switch_selected()
 
                 Button:
@@ -392,14 +411,14 @@
                     Rectangle:
                         pos: root.width*0.15,root.height*0.0815789
                         size: root.width*0.7,root.height*0.58684
-                        source: 'data/icons/profession/lights/bashroom_background_off.jpg'
+                        source: 'data/icons/profession/lights/bashroom_background_off.png'
 
                 Button:
                     id: lights_bashroom_switch_button
-                    size_hint: 0.0375, 0.078947
-                    pos_hint: {"x": 0.69125, 'y': 0.5168421}
-                    background_normal:  "data/icons/profession/lights/off.jpg"
-                    background_down:    "data/icons/profession/lights/off.jpg"
+                    size_hint: 0.0575, 0.12105263157894736842105263157895
+                    pos_hint: {"x": 0.76125, 'y': 0.5025641025641025641025641025641}
+                    background_normal:  "data/icons/profession/lights/off.png"
+                    background_down:    "data/icons/profession/lights/off.png"
                     on_press: root.on_lights_bashroom_switch_selected()
 
                 Button:
@@ -451,14 +470,14 @@
                     Rectangle:
                         pos: root.width*0.15,root.height*0.02894736842105263157894736842105
                         size: root.width*0.7,root.height*0.74473684210526315789473684210526
-                        source: 'data/icons/profession/atmosphere/bedroom_background_off.jpg'
+                        source: 'data/icons/profession/atmosphere/bedroom_background_off.png'
 
                 Button:
                     id: atmosphere_bedroom_switch_button
-                    size_hint: 0.0375, 0.07894736842105263157894736842105
-                    pos_hint: {"x": 0.69125, 'y': 0.62631578947368421052631578947368}
-                    background_normal:  "data/icons/profession/atmosphere/off.jpg"
-                    background_down:    "data/icons/profession/atmosphere/off.jpg"
+                    size_hint: 0.0575, 0.12105263157894736842105263157895
+                    pos_hint: {"x": 0.76125, 'y': 0.60789473684210526315789473684211}
+                    background_normal:  "data/icons/profession/atmosphere/off.png"
+                    background_down:    "data/icons/profession/atmosphere/off.png"
                     on_press: root.on_atmosphere_bedroom_switch_selected()
 
                 Button:
@@ -550,14 +569,14 @@
                     Rectangle:
                         pos: root.width*0.15,root.height*0.02894736842105263157894736842105
                         size: root.width*0.7,root.height*0.74473684210526315789473684210526
-                        source: 'data/icons/profession/atmosphere/livingroom_background_off.jpg'
+                        source: 'data/icons/profession/atmosphere/livingroom_background_off.png'
 
                 Button:
                     id: atmosphere_livingroom_switch_button
-                    size_hint: 0.0375, 0.07894736842105263157894736842105
-                    pos_hint: {"x": 0.69125, 'y': 0.62631578947368421052631578947368}
-                    background_normal:  "data/icons/profession/atmosphere/off.jpg"
-                    background_down:    "data/icons/profession/atmosphere/off.jpg"
+                    size_hint: 0.0575, 0.12105263157894736842105263157895
+                    pos_hint: {"x": 0.76125, 'y': 0.60789473684210526315789473684211}
+                    background_normal:  "data/icons/profession/atmosphere/off.png"
+                    background_down:    "data/icons/profession/atmosphere/off.png"
                     on_press: root.on_atmosphere_livingroom_switch_selected()
 
                 Button:
@@ -649,14 +668,14 @@
                     Rectangle:
                         pos: root.width*0.15,root.height*0.02894736842105263157894736842105
                         size: root.width*0.7,root.height*0.74473684210526315789473684210526
-                        source: 'data/icons/profession/atmosphere/vestibule_background_off.jpg'
+                        source: 'data/icons/profession/atmosphere/vestibule_background_off.png'
 
                 Button:
                     id: atmosphere_vestibule_switch_button
-                    size_hint: 0.0375, 0.07894736842105263157894736842105
-                    pos_hint: {"x": 0.69125, 'y': 0.62631578947368421052631578947368}
-                    background_normal:  "data/icons/profession/atmosphere/off.jpg"
-                    background_down:    "data/icons/profession/atmosphere/off.jpg"
+                    size_hint: 0.0575, 0.12105263157894736842105263157895
+                    pos_hint: {"x": 0.76125, 'y': 0.60789473684210526315789473684211}
+                    background_normal:  "data/icons/profession/atmosphere/off.png"
+                    background_down:    "data/icons/profession/atmosphere/off.png"
                     on_press: root.on_atmosphere_vestibule_switch_selected()
 
                 Button:
@@ -748,14 +767,14 @@
                     Rectangle:
                         pos: root.width*0.15,root.height*0.02894736842105263157894736842105
                         size: root.width*0.7,root.height*0.74473684210526315789473684210526
-                        source: 'data/icons/profession/atmosphere/bashroom_background_off.jpg'
+                        source: 'data/icons/profession/atmosphere/bashroom_background_off.png'
 
                 Button:
                     id: atmosphere_bashroom_switch_button
-                    size_hint: 0.0375, 0.07894736842105263157894736842105
-                    pos_hint: {"x": 0.69125, 'y': 0.62631578947368421052631578947368}
-                    background_normal:  "data/icons/profession/atmosphere/off.jpg"
-                    background_down:    "data/icons/profession/atmosphere/off.jpg"
+                    size_hint: 0.0575, 0.12105263157894736842105263157895
+                    pos_hint: {"x": 0.76125, 'y': 0.60789473684210526315789473684211}
+                    background_normal:  "data/icons/profession/atmosphere/off.png"
+                    background_down:    "data/icons/profession/atmosphere/off.png"
                     on_press: root.on_atmosphere_bashroom_switch_selected()
 
                 Button:
@@ -865,14 +884,15 @@
                     background_normal:  "data/icons/profession/cover/up.jpg"
                     background_down:    "data/icons/profession/cover/up.jpg"
                     on_press: root.on_cover_left_move_button(1)
+                    on_release: root.on_cover_left_move_button(2)
 
-                Button:
-                    id: cover_left_stop_button
-                    size_hint: 0.0575, 0.12105263157894736842105263157895
-                    pos_hint: {"x": 0.28375, 'y': 0.10789473684210526315789473684211}
-                    background_normal:  "data/icons/profession/cover/stop.jpg"
-                    background_down:    "data/icons/profession/cover/stop.jpg"
-                    on_press: root.on_cover_left_move_button(2)
+#                Button:
+#                    id: cover_left_stop_button
+#                    size_hint: 0.0575, 0.12105263157894736842105263157895
+#                    pos_hint: {"x": 0.28375, 'y': 0.10789473684210526315789473684211}
+#                    background_normal:  "data/icons/profession/cover/stop.jpg"
+#                    background_down:    "data/icons/profession/cover/stop.jpg"
+#                    on_press: root.on_cover_left_move_button(2)
 
                 Button:
                     id: cover_left_down_button
@@ -881,6 +901,7 @@
                     background_normal:  "data/icons/profession/cover/down.jpg"
                     background_down:    "data/icons/profession/cover/down.jpg"
                     on_press: root.on_cover_left_move_button(3)
+                    on_release: root.on_cover_left_move_button(2)
 
                 Button:
                     id: cover_left_postion_5_button
@@ -949,14 +970,15 @@
                     background_normal:  "data/icons/profession/cover/up.jpg"
                     background_down:    "data/icons/profession/cover/up.jpg"
                     on_press: root.on_cover_right_move_button(1)
+                    on_release: root.on_cover_right_move_button(2)
 
-                Button:
-                    id: cover_right_stop_button
-                    size_hint: 0.0575, 0.12105263157894736842105263157895
-                    pos_hint: {"x": 0.28375, 'y': 0.10789473684210526315789473684211}
-                    background_normal:  "data/icons/profession/cover/stop.jpg"
-                    background_down:    "data/icons/profession/cover/stop.jpg"
-                    on_press: root.on_cover_right_move_button(2)
+#                Button:
+#                    id: cover_right_stop_button
+#                    size_hint: 0.0575, 0.12105263157894736842105263157895
+#                    pos_hint: {"x": 0.28375, 'y': 0.10789473684210526315789473684211}
+#                    background_normal:  "data/icons/profession/cover/stop.jpg"
+#                    background_down:    "data/icons/profession/cover/stop.jpg"
+#                    on_press: root.on_cover_right_move_button(2)
 
                 Button:
                     id: cover_right_down_button
@@ -965,6 +987,7 @@
                     background_normal:  "data/icons/profession/cover/down.jpg"
                     background_down:    "data/icons/profession/cover/down.jpg"
                     on_press: root.on_cover_right_move_button(3)
+                    on_release: root.on_cover_right_move_button(2)
 
                 Button:
                     id: cover_right_postion_5_button
@@ -1034,13 +1057,13 @@
                     background_down:    "data/icons/profession/cover/up.jpg"
                     on_press: root.on_cover_bashroom_move_button(1)
 
-                Button:
-                    id: cover_bashroom_stop_button
-                    size_hint: 0.0575, 0.12105263157894736842105263157895
-                    pos_hint: {"x": 0.28375, 'y': 0.10789473684210526315789473684211}
-                    background_normal:  "data/icons/profession/cover/stop.jpg"
-                    background_down:    "data/icons/profession/cover/stop.jpg"
-                    on_press: root.on_cover_bashroom_move_button(2)
+#                Button:
+#                    id: cover_bashroom_stop_button
+#                    size_hint: 0.0575, 0.12105263157894736842105263157895
+#                    pos_hint: {"x": 0.28375, 'y': 0.10789473684210526315789473684211}
+#                    background_normal:  "data/icons/profession/cover/stop.jpg"
+#                    background_down:    "data/icons/profession/cover/stop.jpg"
+#                    on_press: root.on_cover_bashroom_move_button(2)
 
                 Button:
                     id: cover_bashroom_down_button

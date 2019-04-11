@@ -1,0 +1,13 @@
+<SettingFloatLayout>
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'data/icons/setting/background.png'
+
+    Button:
+        size_hint: 0.12625, 0.176315
+        pos_hint: {"x": .015, 'y': .789473}
+        background_normal:  "data/icons/setting/return.png"
+        background_down:    "data/icons/setting/return.png"
+        on_press: app.on_main_screen()

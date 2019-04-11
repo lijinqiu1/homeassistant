@@ -1,4 +1,9 @@
 # -*-coding:utf-8-*-
+import platform
+if platform.machine() == 'armv7l':
+    import os
+    os.environ['KIVY_GL_BACKEND'] = 'gl'
+    os.environ['KIVY_BCM_DISPMANX_ID'] = '2'
 import kivy
 from kivy.app import App
 from kivy.uix.screenmanager import Screen
@@ -8,6 +13,7 @@ from kivy.clock import Clock
 from main import MainFloatLayout
 from easy import EasyFloatLayout
 from profession import ProfessionFloatLayout
+from setting import SettingFloatLayout
 from RsetAPI import RsetAPI
 Config.write()
 
@@ -40,6 +46,11 @@ class Homeassistant(App):
         profession_screen.add_widget(profession)
         self.root.ids.sm.add_widget(profession_screen)
 
+        setting = SettingFloatLayout()
+        setting_screen = Screen(name='setting')
+        setting_screen.add_widget(setting)
+        self.root.ids.sm.add_widget(setting_screen)
+
         self.root.ids.sm.current = 'main'
 
     def on_easy_screen(self):
@@ -53,6 +64,10 @@ class Homeassistant(App):
     def on_main_screen(self):
         self.root.ids.sm.transition.direction = 'right'
         self.root.ids.sm.current = 'main'
+
+    def on_setting_screen(self):
+        self.root.ids.sm.transition.direction = 'left'
+        self.root.ids.sm.current = 'setting'
 
     def on_door_control(self):
         if self.door_state == 'close':

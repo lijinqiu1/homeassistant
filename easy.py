@@ -22,11 +22,16 @@ class EasyFloatLayout(FloatLayout):
         self.ids.button_cover_open.background_down = 'data/icons/easy/selected.jpg'
 
         Clock.schedule_interval(self._update_clock, 30)
+        temp = self.api.get_temp()
+        if temp != u'unknown':
+            temp = int(float(str(temp)))
+            self.ids.easy_label_temperature.text = '[color=#6E6E6E]'+str(temp)+'[/color]'
 
     def _update_clock(self,dt):
         temp = self.api.get_temp()
-        if temp:
-            self.ids.Label.text = '[color=#6E6E6E]'+temp+'[/color]'
+        if temp != u'unknown':
+            temp = int(float(str(temp)))
+            self.ids.easy_label_temperature.text = '[color=#6E6E6E]'+str(temp)+'[/color]'
 
     def on_main_screen(self):
         pass

@@ -15,6 +15,7 @@ class ProfessionFloatLayout(FloatLayout):
         self.profession_current_type = 1
         self.profession_event = 'None'
         self.profession_air_switch = 0
+        self.profession_canopy_switch = 0
         self.profession_floor_heating_switch = 0
         self.profession_climate_switch = 0
         self.profession_climate_mode = 'None'
@@ -60,12 +61,12 @@ class ProfessionFloatLayout(FloatLayout):
         if mode == 'False':
             if self.profession_climate_switch == 1:
                 self.profession_climate_switch = 0
-                self.ids.climate_switch_button.background_normal = "data/icons/profession/climate/off.jpg"
-                self.ids.climate_switch_button.background_down = "data/icons/profession/climate/off.jpg"
+                self.ids.climate_switch_button.background_normal = "data/icons/profession/climate/off.png"
+                self.ids.climate_switch_button.background_down = "data/icons/profession/climate/off.png"
                 self.ids.climate_FloatLayout.canvas.before.clear()
                 with self.ids.climate_FloatLayout.canvas.before:
                     Rectangle(size=(self.width * 0.7, self.height * 0.70263), pos=(self.width * 0.15, self.height * 0.0421),
-                              source='data/icons/profession/climate/background_off.jpg')
+                              source='data/icons/profession/climate/background_off.png')
                 self.ids.climate_heat_button.background_normal = \
                     "data/icons/profession/climate/switch_disable.jpg"
                 self.ids.climate_heat_button.background_down = \
@@ -91,12 +92,12 @@ class ProfessionFloatLayout(FloatLayout):
         else:
             if self.profession_climate_switch == 0:
                 self.profession_climate_switch = 1
-                self.ids.climate_switch_button.background_normal = "data/icons/profession/climate/on.jpg"
-                self.ids.climate_switch_button.background_down = "data/icons/profession/climate/on.jpg"
+                self.ids.climate_switch_button.background_normal = "data/icons/profession/climate/on.png"
+                self.ids.climate_switch_button.background_down = "data/icons/profession/climate/on.png"
                 self.ids.climate_FloatLayout.canvas.before.clear()
                 with self.ids.climate_FloatLayout.canvas.before:
                     Rectangle(size=(self.width * 0.7, self.height * 0.70263), pos=(self.width * 0.15, self.height * 0.0421),
-                              source='data/icons/profession/climate/background_on1.jpg')
+                              source='data/icons/profession/climate/background_on.png')
                 self.ids.climate_up_button.background_normal = \
                     "data/icons/profession/climate/up.jpg"
                 self.ids.climate_up_button.background_down = \
@@ -162,8 +163,8 @@ class ProfessionFloatLayout(FloatLayout):
 
     def update_floor_heat_screen(self):
         if self.profession_floor_heating_switch == 1:
-            self.ids.floor_heating_switch_button.background_normal = "data/icons/profession/floor_heating/on.jpg"
-            self.ids.floor_heating_switch_button.background_down = "data/icons/profession/floor_heating/on.jpg"
+            self.ids.floor_heating_switch_button.background_normal = "data/icons/profession/floor_heating/on.png"
+            self.ids.floor_heating_switch_button.background_down = "data/icons/profession/floor_heating/on.png"
             self.ids.floor_heating_FloatLayout.canvas.before.clear()
             with self.ids.floor_heating_FloatLayout.canvas.before:
                 Rectangle(size=(self.width*0.7, self.height*0.58684), pos=(self.width*0.15, self.height*0.0815789),
@@ -216,15 +217,31 @@ class ProfessionFloatLayout(FloatLayout):
             self.ids.floor_heating_level_5_button.background_down = \
                 "data/icons/profession/floor_heating/switch_disable.jpg"
 
+    def update_canopy_screen(self):
+        if self.profession_canopy_switch == 1:
+            self.ids.canopy_switch_button.background_normal = "data/icons/profession/canopy/on.png"
+            self.ids.canopy_switch_button.background_down = "data/icons/profession/canopy/on.png"
+            self.ids.canopy_FloatLayout.canvas.before.clear()
+            with self.ids.canopy_FloatLayout.canvas.before:
+                Rectangle(size=(self.width*0.7, self.height*0.58684), pos=(self.width*0.15, self.height*0.0815789),
+                          source='data/icons/profession/canopy/background_on.png')
+        elif self.profession_canopy_switch == 0:
+            self.ids.canopy_switch_button.background_normal = "data/icons/profession/canopy/off.png"
+            self.ids.canopy_switch_button.background_down = "data/icons/profession/canopy/off.png"
+            self.ids.canopy_FloatLayout.canvas.before.clear()
+            with self.ids.canopy_FloatLayout.canvas.before:
+                Rectangle(size=(self.width*0.7, self.height*0.58684), pos=(self.width*0.15, self.height*0.0815789),
+                          source='data/icons/profession/canopy/background_off.png')
+
     def update_bedroom_light(self):
         if self.profession_lights_bedroom['switch'] == 'on':
-            self.ids.lights_bedroom_switch_button.background_normal = "data/icons/profession/lights/on.jpg"
-            self.ids.lights_bedroom_switch_button.background_down = "data/icons/profession/lights/on.jpg"
+            self.ids.lights_bedroom_switch_button.background_normal = "data/icons/profession/lights/on.png"
+            self.ids.lights_bedroom_switch_button.background_down = "data/icons/profession/lights/on.png"
             self.ids.lights_bedroom_FloatLayout.canvas.before.clear()
             with self.ids.lights_bedroom_FloatLayout.canvas.before:
                 Rectangle(size=(self.width * 0.7, self.height * 0.58684),
                           pos=(self.width * 0.15, self.height * 0.0815789),
-                          source='data/icons/profession/lights/bedroom_background_on.jpg')
+                          source='data/icons/profession/lights/bedroom_background_on.png')
             self.ids.lights_bedroom_level_1_button.background_normal = \
                 "data/icons/profession/lights/switch.jpg"
             self.ids.lights_bedroom_level_1_button.background_down = \
@@ -246,12 +263,12 @@ class ProfessionFloatLayout(FloatLayout):
             self.ids.lights_bedroom_level_5_button.background_down = \
                 "data/icons/profession/lights/switch.jpg"
         elif self.profession_lights_bedroom['switch'] == 'off':
-            self.ids.lights_bedroom_switch_button.background_normal = "data/icons/profession/lights/off.jpg"
-            self.ids.lights_bedroom_switch_button.background_down = "data/icons/profession/lights/off.jpg"
+            self.ids.lights_bedroom_switch_button.background_normal = "data/icons/profession/lights/off.png"
+            self.ids.lights_bedroom_switch_button.background_down = "data/icons/profession/lights/off.png"
             self.ids.lights_bedroom_FloatLayout.canvas.before.clear()
             with self.ids.lights_bedroom_FloatLayout.canvas.before:
                 Rectangle(size=(self.width*0.7, self.height*0.58684), pos=(self.width*0.15, self.height*0.0815789),
-                          source='data/icons/profession/lights/bedroom_background_off.jpg')
+                          source='data/icons/profession/lights/bedroom_background_off.png')
             self.ids.lights_bedroom_level_1_button.background_normal = \
                 "data/icons/profession/lights/switch_disable.jpg"
             self.ids.lights_bedroom_level_1_button.background_down = \
@@ -275,13 +292,13 @@ class ProfessionFloatLayout(FloatLayout):
 
     def update_livingroom_light(self):
         if self.profession_lights_livingroom['switch'] == 'on':
-            self.ids.lights_livingroom_switch_button.background_normal = "data/icons/profession/lights/on.jpg"
-            self.ids.lights_livingroom_switch_button.background_down = "data/icons/profession/lights/on.jpg"
+            self.ids.lights_livingroom_switch_button.background_normal = "data/icons/profession/lights/on.png"
+            self.ids.lights_livingroom_switch_button.background_down = "data/icons/profession/lights/on.png"
             self.ids.lights_livingroom_FloatLayout.canvas.before.clear()
             with self.ids.lights_livingroom_FloatLayout.canvas.before:
                 Rectangle(size=(self.width * 0.7, self.height * 0.58684),
                           pos=(self.width * 0.15, self.height * 0.0815789),
-                          source='data/icons/profession/lights/livingroom_background_on.jpg')
+                          source='data/icons/profession/lights/livingroom_background_on.png')
             self.ids.lights_livingroom_level_1_button.background_normal = \
                 "data/icons/profession/lights/switch.jpg"
             self.ids.lights_livingroom_level_1_button.background_down = \
@@ -303,12 +320,12 @@ class ProfessionFloatLayout(FloatLayout):
             self.ids.lights_livingroom_level_5_button.background_down = \
                 "data/icons/profession/lights/switch.jpg"
         elif self.profession_lights_livingroom['switch'] == 'off':
-            self.ids.lights_livingroom_switch_button.background_normal = "data/icons/profession/lights/off.jpg"
-            self.ids.lights_livingroom_switch_button.background_down = "data/icons/profession/lights/off.jpg"
+            self.ids.lights_livingroom_switch_button.background_normal = "data/icons/profession/lights/off.png"
+            self.ids.lights_livingroom_switch_button.background_down = "data/icons/profession/lights/off.png"
             self.ids.lights_livingroom_FloatLayout.canvas.before.clear()
             with self.ids.lights_livingroom_FloatLayout.canvas.before:
                 Rectangle(size=(self.width*0.7, self.height*0.58684), pos=(self.width*0.15, self.height*0.0815789),
-                          source='data/icons/profession/lights/livingroom_background_off.jpg')
+                          source='data/icons/profession/lights/livingroom_background_off.png')
             self.ids.lights_livingroom_level_1_button.background_normal = \
                 "data/icons/profession/lights/switch_disable.jpg"
             self.ids.lights_livingroom_level_1_button.background_down = \
@@ -332,13 +349,13 @@ class ProfessionFloatLayout(FloatLayout):
 
     def update_vestibule_light(self):
         if self.profession_lights_vestibule['switch'] == 'on':
-            self.ids.lights_vestibule_switch_button.background_normal = "data/icons/profession/lights/on.jpg"
-            self.ids.lights_vestibule_switch_button.background_down = "data/icons/profession/lights/on.jpg"
+            self.ids.lights_vestibule_switch_button.background_normal = "data/icons/profession/lights/on.png"
+            self.ids.lights_vestibule_switch_button.background_down = "data/icons/profession/lights/on.png"
             self.ids.lights_vestibule_FloatLayout.canvas.before.clear()
             with self.ids.lights_vestibule_FloatLayout.canvas.before:
                 Rectangle(size=(self.width * 0.7, self.height * 0.58684),
                           pos=(self.width * 0.15, self.height * 0.0815789),
-                          source='data/icons/profession/lights/vestibule_background_on.jpg')
+                          source='data/icons/profession/lights/vestibule_background_on.png')
             self.ids.lights_vestibule_level_1_button.background_normal = \
                 "data/icons/profession/lights/switch.jpg"
             self.ids.lights_vestibule_level_1_button.background_down = \
@@ -360,12 +377,12 @@ class ProfessionFloatLayout(FloatLayout):
             self.ids.lights_vestibule_level_5_button.background_down = \
                 "data/icons/profession/lights/switch.jpg"
         elif self.profession_lights_vestibule['switch'] == 'off':
-            self.ids.lights_vestibule_switch_button.background_normal = "data/icons/profession/lights/off.jpg"
-            self.ids.lights_vestibule_switch_button.background_down = "data/icons/profession/lights/off.jpg"
+            self.ids.lights_vestibule_switch_button.background_normal = "data/icons/profession/lights/off.png"
+            self.ids.lights_vestibule_switch_button.background_down = "data/icons/profession/lights/off.png"
             self.ids.lights_vestibule_FloatLayout.canvas.before.clear()
             with self.ids.lights_vestibule_FloatLayout.canvas.before:
                 Rectangle(size=(self.width*0.7, self.height*0.58684), pos=(self.width*0.15, self.height*0.0815789),
-                          source='data/icons/profession/lights/vestibule_background_off.jpg')
+                          source='data/icons/profession/lights/vestibule_background_off.png')
             self.ids.lights_vestibule_level_1_button.background_normal = \
                 "data/icons/profession/lights/switch_disable.jpg"
             self.ids.lights_vestibule_level_1_button.background_down = \
@@ -389,13 +406,13 @@ class ProfessionFloatLayout(FloatLayout):
 
     def update_bashroom_light(self):
         if self.profession_lights_bashroom['switch'] == 'on':
-            self.ids.lights_bashroom_switch_button.background_normal = "data/icons/profession/lights/on.jpg"
-            self.ids.lights_bashroom_switch_button.background_down = "data/icons/profession/lights/on.jpg"
+            self.ids.lights_bashroom_switch_button.background_normal = "data/icons/profession/lights/on.png"
+            self.ids.lights_bashroom_switch_button.background_down = "data/icons/profession/lights/on.png"
             self.ids.lights_bashroom_FloatLayout.canvas.before.clear()
             with self.ids.lights_bashroom_FloatLayout.canvas.before:
                 Rectangle(size=(self.width * 0.7, self.height * 0.58684),
                           pos=(self.width * 0.15, self.height * 0.0815789),
-                          source='data/icons/profession/lights/bashroom_background_on.jpg')
+                          source='data/icons/profession/lights/bashroom_background_on.png')
             self.ids.lights_bashroom_level_1_button.background_normal = \
                 "data/icons/profession/lights/switch.jpg"
             self.ids.lights_bashroom_level_1_button.background_down = \
@@ -417,12 +434,12 @@ class ProfessionFloatLayout(FloatLayout):
             self.ids.lights_bashroom_level_5_button.background_down = \
                 "data/icons/profession/lights/switch.jpg"
         elif self.profession_lights_bashroom['switch'] == 'off':
-            self.ids.lights_bashroom_switch_button.background_normal = "data/icons/profession/lights/off.jpg"
-            self.ids.lights_bashroom_switch_button.background_down = "data/icons/profession/lights/off.jpg"
+            self.ids.lights_bashroom_switch_button.background_normal = "data/icons/profession/lights/off.png"
+            self.ids.lights_bashroom_switch_button.background_down = "data/icons/profession/lights/off.png"
             self.ids.lights_bashroom_FloatLayout.canvas.before.clear()
             with self.ids.lights_bashroom_FloatLayout.canvas.before:
                 Rectangle(size=(self.width*0.7, self.height*0.58684), pos=(self.width*0.15, self.height*0.0815789),
-                          source='data/icons/profession/lights/bashroom_background_off.jpg')
+                          source='data/icons/profession/lights/bashroom_background_off.png')
             self.ids.lights_bashroom_level_1_button.background_normal = \
                 "data/icons/profession/lights/switch_disable.jpg"
             self.ids.lights_bashroom_level_1_button.background_down = \
@@ -449,13 +466,13 @@ class ProfessionFloatLayout(FloatLayout):
         if state['state'] == 'on':
             if state['state'] != self.profession_atmosphere_bedroom['switch']:
                 self.profession_atmosphere_bedroom['switch'] = state['state']
-                self.ids.atmosphere_bedroom_switch_button.background_normal = "data/icons/profession/atmosphere/on.jpg"
-                self.ids.atmosphere_bedroom_switch_button.background_down = "data/icons/profession/atmosphere/on.jpg"
+                self.ids.atmosphere_bedroom_switch_button.background_normal = "data/icons/profession/atmosphere/on.png"
+                self.ids.atmosphere_bedroom_switch_button.background_down = "data/icons/profession/atmosphere/on.png"
                 self.ids.atmosphere_bedroom_switch_button.canvas.before.clear()
                 with self.ids.atmosphere_bedroom_FloatLayout.canvas.before:
                     Rectangle(size=(self.width * 0.7, self.height * 0.74473684210526315789473684210526),
                               pos=(self.width * 0.15, self.height * 0.02894736842105263157894736842105),
-                              source='data/icons/profession/atmosphere/bedroom_background_on.jpg')
+                              source='data/icons/profession/atmosphere/bedroom_background_on.png')
                 self.profession_atmosphere_bedroom['color'] = 'none'
                 self.profession_atmosphere_bedroom['level'] = 'none'
 
@@ -563,13 +580,13 @@ class ProfessionFloatLayout(FloatLayout):
         elif state['state'] == 'off':
             if self.profession_atmosphere_bedroom['switch'] != state['state']:
                 self.profession_atmosphere_bedroom['switch'] = state['state']
-                self.ids.atmosphere_bedroom_switch_button.background_normal = "data/icons/profession/atmosphere/off.jpg"
-                self.ids.atmosphere_bedroom_switch_button.background_down = "data/icons/profession/atmosphere/off.jpg"
+                self.ids.atmosphere_bedroom_switch_button.background_normal = "data/icons/profession/atmosphere/off.png"
+                self.ids.atmosphere_bedroom_switch_button.background_down = "data/icons/profession/atmosphere/off.png"
                 self.ids.atmosphere_bedroom_FloatLayout.canvas.before.clear()
                 with self.ids.atmosphere_bedroom_FloatLayout.canvas.before:
                     Rectangle(size=(self.width * 0.7, self.height * 0.74473684210526315789473684210526),
                               pos=(self.width * 0.15, self.height * 0.02894736842105263157894736842105),
-                              source='data/icons/profession/atmosphere/bedroom_background_off.jpg')
+                              source='data/icons/profession/atmosphere/bedroom_background_off.png')
                 self.ids.atmosphere_bedroom_level_1_button.background_normal = \
                     "data/icons/profession/atmosphere/switch_disable.jpg"
                 self.ids.atmosphere_bedroom_level_1_button.background_down = \
@@ -617,13 +634,13 @@ class ProfessionFloatLayout(FloatLayout):
         if state['state'] == 'on':
             if state['state'] != self.profession_atmosphere_bashroom['switch']:
                 self.profession_atmosphere_bashroom['switch'] = state['state']
-                self.ids.atmosphere_bashroom_switch_button.background_normal = "data/icons/profession/atmosphere/on.jpg"
-                self.ids.atmosphere_bashroom_switch_button.background_down = "data/icons/profession/atmosphere/on.jpg"
+                self.ids.atmosphere_bashroom_switch_button.background_normal = "data/icons/profession/atmosphere/on.png"
+                self.ids.atmosphere_bashroom_switch_button.background_down = "data/icons/profession/atmosphere/on.png"
                 self.ids.atmosphere_bashroom_switch_button.canvas.before.clear()
                 with self.ids.atmosphere_bashroom_FloatLayout.canvas.before:
                     Rectangle(size=(self.width * 0.7, self.height * 0.74473684210526315789473684210526),
                               pos=(self.width * 0.15, self.height * 0.02894736842105263157894736842105),
-                              source='data/icons/profession/atmosphere/bashroom_background_on.jpg')
+                              source='data/icons/profession/atmosphere/bashroom_background_on.png')
                 self.profession_atmosphere_bashroom['color'] = 'none'
                 self.profession_atmosphere_bashroom['level'] = 'none'
 
@@ -731,13 +748,13 @@ class ProfessionFloatLayout(FloatLayout):
         elif state['state'] == 'off':
             if self.profession_atmosphere_bashroom['switch'] != state['state']:
                 self.profession_atmosphere_bashroom['switch'] = state['state']
-                self.ids.atmosphere_bashroom_switch_button.background_normal = "data/icons/profession/atmosphere/off.jpg"
-                self.ids.atmosphere_bashroom_switch_button.background_down = "data/icons/profession/atmosphere/off.jpg"
+                self.ids.atmosphere_bashroom_switch_button.background_normal = "data/icons/profession/atmosphere/off.png"
+                self.ids.atmosphere_bashroom_switch_button.background_down = "data/icons/profession/atmosphere/off.png"
                 self.ids.atmosphere_bashroom_FloatLayout.canvas.before.clear()
                 with self.ids.atmosphere_bashroom_FloatLayout.canvas.before:
                     Rectangle(size=(self.width * 0.7, self.height * 0.74473684210526315789473684210526),
                               pos=(self.width * 0.15, self.height * 0.02894736842105263157894736842105),
-                              source='data/icons/profession/atmosphere/bashroom_background_off.jpg')
+                              source='data/icons/profession/atmosphere/bashroom_background_off.png')
                 self.ids.atmosphere_bashroom_level_1_button.background_normal = \
                     "data/icons/profession/atmosphere/switch_disable.jpg"
                 self.ids.atmosphere_bashroom_level_1_button.background_down = \
@@ -946,6 +963,15 @@ class ProfessionFloatLayout(FloatLayout):
             elif state == 'off':
                 self.profession_floor_heating_switch = 0
                 self.update_floor_heat_screen()
+        elif self.ids.sm_profession.current == 'environment_canopy':
+            state = self.api.get_group_switch_state('canopy_switch')
+            if state == 'on':
+                self.profession_canopy_switch = 1
+                self.update_canopy_screen()
+            elif state == 'off':
+                self.profession_canopy_switch = 0
+                self.update_canopy_screen()
+
         #获取空调状态
         elif self.ids.sm_profession.current == 'environment_climate':
             state = self.api.get_ac_mode()
@@ -1029,6 +1055,8 @@ class ProfessionFloatLayout(FloatLayout):
         if self.ids.sm_profession.current == 'environment_air':
             self.ids.sm_profession.current = 'environment_floor_heating'
         elif self.ids.sm_profession.current == 'environment_floor_heating':
+            self.ids.sm_profession.current = 'environment_canopy'
+        elif self.ids.sm_profession.current == 'environment_canopy':
             self.ids.sm_profession.current = 'environment_climate'
         elif self.ids.sm_profession.current == 'environment_climate':
             self.profession_current_type = 2
@@ -1098,6 +1126,8 @@ class ProfessionFloatLayout(FloatLayout):
         if self.ids.sm_profession.current == 'environment_floor_heating':
             self.ids.sm_profession.current = 'environment_air'
         elif self.ids.sm_profession.current == 'environment_climate':
+            self.ids.sm_profession.current = 'environment_canopy'
+        elif self.ids.sm_profession.current == 'environment_canopy':
             self.ids.sm_profession.current = 'environment_floor_heating'
         elif self.ids.sm_profession.current == 'lights_bedroom':
             self.profession_current_type = 1
@@ -1169,16 +1199,16 @@ class ProfessionFloatLayout(FloatLayout):
             with self.ids.air_FloatLayout.canvas.before:
                 Rectangle(size=(self.width*0.7, self.height*0.58684), pos=(self.width*0.15, self.height*0.0815789),
                           source='data/icons/profession/air/background_on.jpg')
-            self.ids.air_switch_button.background_normal = "data/icons/profession/air/on.jpg"
-            self.ids.air_switch_button.background_down = "data/icons/profession/air/on.jpg"
+            self.ids.air_switch_button.background_normal = "data/icons/profession/air/on.png"
+            self.ids.air_switch_button.background_down = "data/icons/profession/air/on.png"
             self.profession_air_switch = 1
         else:
             self.ids.air_FloatLayout.canvas.before.clear()
             with self.ids.air_FloatLayout.canvas.before:
                 Rectangle(size=(self.width*0.7, self.height*0.58684), pos=(self.width*0.15, self.height*0.0815789),
                           source='data/icons/profession/air/background_off.jpg')
-            self.ids.air_switch_button.background_normal = "data/icons/profession/air/off.jpg"
-            self.ids.air_switch_button.background_down = "data/icons/profession/air/off.jpg"
+            self.ids.air_switch_button.background_normal = "data/icons/profession/air/off.png"
+            self.ids.air_switch_button.background_down = "data/icons/profession/air/off.png"
             self.profession_air_switch = 0
 
     #地暖开关
@@ -1237,6 +1267,12 @@ class ProfessionFloatLayout(FloatLayout):
                     "data/icons/profession/floor_heating/switch_h.jpg"
                 self.ids.floor_heating_level_5_button.background_down = \
                     "data/icons/profession/floor_heating/switch_h.jpg"
+
+    def on_canopy_switch_selected(self):
+        if self.profession_canopy_switch == 0:
+            self.api.set_group_switch_on('canopy_switch')
+        else:
+            self.api.set_group_switch_off('canopy_switch')
 
     #空调开关
     def on_climate_switch_selected(self):
@@ -1972,12 +2008,24 @@ class ProfessionFloatLayout(FloatLayout):
         if args[0] == 1:
             #升起
             self.api.set_cover_open('left_cover')
+            if self.profession_cover_right['action'] == 1:
+                self.api.set_cover_open('right_cover')
+            if self.profession_cover_bashroom['action'] == 1:
+                self.api.set_cover_open('bashroom_cover')
         elif args[0] == 2:
             #停止
             self.api.set_cover_stop('left_cover')
+            if self.profession_cover_right['action'] == 1:
+                self.api.set_cover_stop('right_cover')
+            if self.profession_cover_bashroom['action'] == 1:
+                self.api.set_cover_stop('bashroom_cover')
         elif args[0] == 3:
             #下降
             self.api.set_cover_close('left_cover')
+            if self.profession_cover_right['action'] == 1:
+                self.api.set_cover_close('right_cover')
+            if self.profession_cover_bashroom['action'] == 1:
+                self.api.set_cover_close('bashroom_cover')
 
     def on_cover_left_postion_button(self, *args):
         if args[0] == 1:
@@ -2009,12 +2057,24 @@ class ProfessionFloatLayout(FloatLayout):
         if args[0] == 1:
             #升起
             self.api.set_cover_open('right_cover')
+            if self.profession_cover_left['action'] == 1:
+                self.api.set_cover_open('left_cover')
+            if self.profession_cover_bashroom['action'] == 1:
+                self.api.set_cover_open('bashroom_cover')
         elif args[0] == 2:
             #停止
             self.api.set_cover_stop('right_cover')
+            if self.profession_cover_left['action'] == 1:
+                self.api.set_cover_stop('left_cover')
+            if self.profession_cover_bashroom['action'] == 1:
+                self.api.set_cover_stop('bashroom_cover')
         elif args[0] == 3:
             #下降
             self.api.set_cover_close('right_cover')
+            if self.profession_cover_left['action'] == 1:
+                self.api.set_cover_close('left_cover')
+            if self.profession_cover_bashroom['action'] == 1:
+                self.api.set_cover_close('bashroom_cover')
 
     def on_cover_right_postion_button(self, *args):
         if args[0] == 1:
@@ -2046,12 +2106,24 @@ class ProfessionFloatLayout(FloatLayout):
         if args[0] == 1:
             #升起
             self.api.set_cover_open('bashroom_cover')
+            if self.profession_cover_left['action'] == 1:
+                self.api.set_cover_open('left_cover')
+            if self.profession_cover_right['action'] == 1:
+                self.api.set_cover_open('right_cover')
         elif args[0] == 2:
             #停止
             self.api.set_cover_stop('bashroom_cover')
+            if self.profession_cover_left['action'] == 1:
+                self.api.set_cover_stop('left_cover')
+            if self.profession_cover_right['action'] == 1:
+                self.api.set_cover_stop('right_cover')
         elif args[0] == 3:
             #下降
             self.api.set_cover_close('bashroom_cover')
+            if self.profession_cover_left['action'] == 1:
+                self.api.set_cover_close('left_cover')
+            if self.profession_cover_right['action'] == 1:
+                self.api.set_cover_close('right_cover')
 
     def on_cover_bashroom_postion_button(self, *args):
         if args[0] == 1:
