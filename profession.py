@@ -59,7 +59,7 @@ class ProfessionFloatLayout(FloatLayout):
         self.api = RsetAPI()
 
         Clock.schedule_interval(self._update_clock, 1.)
-        Clock.schedule_interval(self._update_state, 1.)
+        # Clock.schedule_interval(self._update_state, 1.)
 
     def _update_state(self, dt):
         gevent.joinall([
@@ -81,16 +81,16 @@ class ProfessionFloatLayout(FloatLayout):
             self.profession_climate_temp = self.api.get_ac_temp()
         #获取卧室灯状态
         elif self.ids.sm_profession.current == 'lights_bedroom':
-            self.profession_lights_bedroom = self.api.get_group_switch_state('bedroom_light_switch')
+            self.profession_lights_bedroom['switch'] = self.api.get_group_switch_state('bedroom_light_switch')
         #获取客厅灯状态
         elif self.ids.sm_profession.current == 'lights_livingroom':
-            self.profession_lights_livingroom = self.api.get_group_switch_state('livingroom_light_switch')
+            self.profession_lights_livingroom['switch'] = self.api.get_group_switch_state('livingroom_light_switch')
         #获取玄关灯状态
         elif self.ids.sm_profession.current == 'lights_vestibule':
-            self.profession_lights_vestibule = self.api.get_group_switch_state('vestibule_light_switch')
+            self.profession_lights_vestibule['switch'] = self.api.get_group_switch_state('vestibule_light_switch')
         #获取卫浴灯状态
         elif self.ids.sm_profession.current == 'lights_bashroom':
-            self.profession_lights_bashroom = self.api.get_group_switch_state('bashroom_light_switch')
+            self.profession_lights_bashroom['switch'] = self.api.get_group_switch_state('bashroom_light_switch')
         #获取卧室氛围灯状态
         elif self.ids.sm_profession.current == 'atmosphere_bedroom':
             state = self.api.get_group_light_state('bedroom')
@@ -107,6 +107,9 @@ class ProfessionFloatLayout(FloatLayout):
         elif self.ids.sm_profession.current == 'cover_left':
             self.profession_cover_left['postion'] = self.api.get_cover_position('left_cover')
         #获取右窗帘状态
+        elif self.ids.sm_profession.current == 'cover_mid':
+            self.profession_cover_mid['postion'] = self.api.get_cover_position('mid_cover')
+        #获取右窗帘状态
         elif self.ids.sm_profession.current == 'cover_right':
             self.profession_cover_right['postion'] = self.api.get_cover_position('right_cover')
         #获取卫浴窗帘状态
@@ -117,79 +120,74 @@ class ProfessionFloatLayout(FloatLayout):
         mode = self.profession_climate_mode
         temp = self.profession_climate_temp
         if mode == 'False':
-            if self.profession_climate_switch == 1:
-                self.profession_climate_switch = 0
-                self.ids.climate_switch_button.background_normal = "data/icons/profession/climate/off.png"
-                self.ids.climate_switch_button.background_down = "data/icons/profession/climate/off.png"
-                self.ids.climate_FloatLayout.canvas.before.clear()
-                with self.ids.climate_FloatLayout.canvas.before:
-                    Rectangle(size=(self.width * 0.7, self.height * 0.70263), pos=(self.width * 0.15, self.height * 0.0421),
-                              source='data/icons/profession/climate/background_off.png')
-                self.ids.climate_heat_button.background_normal = \
-                    "data/icons/profession/climate/switch_disable.jpg"
-                self.ids.climate_heat_button.background_down = \
-                    "data/icons/profession/climate/switch_disable.jpg"
-                self.ids.climate_cool_button.background_normal = \
-                    "data/icons/profession/climate/switch_disable.jpg"
-                self.ids.climate_cool_button.background_down = \
-                    "data/icons/profession/climate/switch_disable.jpg"
-                self.ids.climate_dry_button.background_normal = \
-                    "data/icons/profession/climate/switch_disable.jpg"
-                self.ids.climate_dry_button.background_down = \
-                    "data/icons/profession/climate/switch_disable.jpg"
-                self.ids.climate_up_button.background_normal = \
-                    "data/icons/profession/climate/up_disable.jpg"
-                self.ids.climate_up_button.background_down = \
-                    "data/icons/profession/climate/up_disable.jpg"
-                self.ids.climate_down_button.background_normal = \
-                    "data/icons/profession/climate/down_disable.jpg"
-                self.ids.climate_down_button.background_down = \
-                    "data/icons/profession/climate/down_disable.jpg"
+            self.ids.climate_switch_button.background_normal = "data/icons/profession/climate/off.png"
+            self.ids.climate_switch_button.background_down = "data/icons/profession/climate/off.png"
+            self.ids.climate_FloatLayout.canvas.before.clear()
+            with self.ids.climate_FloatLayout.canvas.before:
+                Rectangle(size=(self.width * 0.7, self.height * 0.70263), pos=(self.width * 0.15, self.height * 0.0421),
+                          source='data/icons/profession/climate/background_off.png')
+            self.ids.climate_heat_button.background_normal = \
+                "data/icons/profession/climate/switch_disable.jpg"
+            self.ids.climate_heat_button.background_down = \
+                "data/icons/profession/climate/switch_disable.jpg"
+            self.ids.climate_cool_button.background_normal = \
+                "data/icons/profession/climate/switch_disable.jpg"
+            self.ids.climate_cool_button.background_down = \
+                "data/icons/profession/climate/switch_disable.jpg"
+            self.ids.climate_dry_button.background_normal = \
+                "data/icons/profession/climate/switch_disable.jpg"
+            self.ids.climate_dry_button.background_down = \
+                "data/icons/profession/climate/switch_disable.jpg"
+            self.ids.climate_up_button.background_normal = \
+                "data/icons/profession/climate/up_disable.jpg"
+            self.ids.climate_up_button.background_down = \
+                "data/icons/profession/climate/up_disable.jpg"
+            self.ids.climate_down_button.background_normal = \
+                "data/icons/profession/climate/down_disable.jpg"
+            self.ids.climate_down_button.background_down = \
+                "data/icons/profession/climate/down_disable.jpg"
 
-                self.ids.cliamate_temp_number.source = 'data/icons/profession/temp/off.jpg'
+            self.ids.cliamate_temp_number.source = 'data/icons/profession/temp/off.jpg'
         else:
-            if self.profession_climate_switch == 0:
-                self.profession_climate_switch = 1
-                self.ids.climate_switch_button.background_normal = "data/icons/profession/climate/on.png"
-                self.ids.climate_switch_button.background_down = "data/icons/profession/climate/on.png"
-                self.ids.climate_FloatLayout.canvas.before.clear()
-                with self.ids.climate_FloatLayout.canvas.before:
-                    Rectangle(size=(self.width * 0.7, self.height * 0.70263), pos=(self.width * 0.15, self.height * 0.0421),
-                              source='data/icons/profession/climate/background_on.png')
-                self.ids.climate_up_button.background_normal = \
-                    "data/icons/profession/climate/up.jpg"
-                self.ids.climate_up_button.background_down = \
-                    "data/icons/profession/climate/up.jpg"
-                self.ids.climate_down_button.background_normal = \
-                    "data/icons/profession/climate/down.jpg"
-                self.ids.climate_down_button.background_down = \
-                    "data/icons/profession/climate/down.jpg"
+            self.ids.climate_switch_button.background_normal = "data/icons/profession/climate/on.png"
+            self.ids.climate_switch_button.background_down = "data/icons/profession/climate/on.png"
+            self.ids.climate_FloatLayout.canvas.before.clear()
+            with self.ids.climate_FloatLayout.canvas.before:
+                Rectangle(size=(self.width * 0.7, self.height * 0.70263), pos=(self.width * 0.15, self.height * 0.0421),
+                          source='data/icons/profession/climate/background_on.png')
+            self.ids.climate_up_button.background_normal = \
+                "data/icons/profession/climate/up.jpg"
+            self.ids.climate_up_button.background_down = \
+                "data/icons/profession/climate/up.jpg"
+            self.ids.climate_down_button.background_normal = \
+                "data/icons/profession/climate/down.jpg"
+            self.ids.climate_down_button.background_down = \
+                "data/icons/profession/climate/down.jpg"
 
-            if mode != self.profession_climate_mode:
-                self.ids.climate_heat_button.background_normal = \
-                    "data/icons/profession/climate/select.jpg"
-                self.ids.climate_heat_button.background_down = \
-                    "data/icons/profession/climate/select.jpg"
-                self.ids.climate_cool_button.background_normal = \
-                    "data/icons/profession/climate/select.jpg"
-                self.ids.climate_cool_button.background_down = \
-                    "data/icons/profession/climate/select.jpg"
-                self.ids.climate_dry_button.background_normal = \
-                    "data/icons/profession/climate/select.jpg"
-                self.ids.climate_dry_button.background_down = \
-                    "data/icons/profession/climate/select.jpg"
-                if mode == 'COOL':
-                    self.ids.climate_cool_button.background_normal = "data/icons/profession/climate/selected.jpg"
-                    self.ids.climate_cool_button.background_down = "data/icons/profession/climate/selected.jpg"
-                    self.profession_climate_mode = 'COOL'
-                elif mode == 'HEAT':
-                    self.ids.climate_heat_button.background_normal = "data/icons/profession/climate/selected.jpg"
-                    self.ids.climate_heat_button.background_down = "data/icons/profession/climate/selected.jpg"
-                    self.profession_climate_mode = 'HEAT'
-                elif mode == 'DRY':
-                    self.ids.climate_dry_button.background_normal = "data/icons/profession/climate/selected.jpg"
-                    self.ids.climate_dry_button.background_down = "data/icons/profession/climate/selected.jpg"
-                    self.profession_climate_mode = 'DRY'
+            self.ids.climate_heat_button.background_normal = \
+                "data/icons/profession/climate/select.jpg"
+            self.ids.climate_heat_button.background_down = \
+                "data/icons/profession/climate/select.jpg"
+            self.ids.climate_cool_button.background_normal = \
+                "data/icons/profession/climate/select.jpg"
+            self.ids.climate_cool_button.background_down = \
+                "data/icons/profession/climate/select.jpg"
+            self.ids.climate_dry_button.background_normal = \
+                "data/icons/profession/climate/select.jpg"
+            self.ids.climate_dry_button.background_down = \
+                "data/icons/profession/climate/select.jpg"
+            if mode == 'COOL':
+                self.ids.climate_cool_button.background_normal = "data/icons/profession/climate/selected.jpg"
+                self.ids.climate_cool_button.background_down = "data/icons/profession/climate/selected.jpg"
+                self.profession_climate_mode = 'COOL'
+            elif mode == 'HEAT':
+                self.ids.climate_heat_button.background_normal = "data/icons/profession/climate/selected.jpg"
+                self.ids.climate_heat_button.background_down = "data/icons/profession/climate/selected.jpg"
+                self.profession_climate_mode = 'HEAT'
+            elif mode == 'DRY':
+                self.ids.climate_dry_button.background_normal = "data/icons/profession/climate/selected.jpg"
+                self.ids.climate_dry_button.background_down = "data/icons/profession/climate/selected.jpg"
+                self.profession_climate_mode = 'DRY'
 
             self.profession_climate_temp = temp
             if temp == 18:
@@ -1025,6 +1023,9 @@ class ProfessionFloatLayout(FloatLayout):
                 "data/icons/profession/cover/switch_h.jpg"
 
     def _update_clock(self, dt):
+        gevent.joinall([
+            gevent.spawn(self.update_state())
+        ])
         #获取新风状态
         if self.ids.sm_profession.current == 'environment_air':
             pass
@@ -1331,8 +1332,10 @@ class ProfessionFloatLayout(FloatLayout):
     #空调开关
     def on_climate_switch_selected(self):
         if self.profession_climate_switch == 'off':
+            self.profession_climate_switch = 'on'
             self.api.set_ac_mode('COOL')
         else:
+            self.profession_climate_switch = 'off'
             self.api.set_ac_mode('False')
             self.profession_climate_mode = 'None'
 
