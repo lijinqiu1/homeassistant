@@ -1,9 +1,14 @@
+# -*-coding:utf-8-*-
 from kivy.uix.floatlayout import FloatLayout
 from kivy.lang import Builder
 from RsetAPI import RsetAPI
 from kivy.clock import Clock
+import kivy
 
 Builder.load_file('data/screens/easy.kv')
+kivy.resources.resource_add_path("data/font")
+simhei = kivy.resources.resource_find("simhei.ttf")
+adobehtr = kivy.resources.resource_find("AdobeHeitiStd-Regular.otf")
 
 
 class EasyFloatLayout(FloatLayout):
@@ -21,17 +26,36 @@ class EasyFloatLayout(FloatLayout):
         self.ids.button_cover_open.background_normal = 'data/icons/easy/selected.jpg'
         self.ids.button_cover_open.background_down = 'data/icons/easy/selected.jpg'
 
-        Clock.schedule_interval(self._update_clock, 30)
+        Clock.schedule_interval(self._update_clock, 30.)
+        self.temp = 25
+        self.hum = 'COMFORTABLE'
+        self.pm2_5_level = 'good'
+        self.pm2_5 = 0
         temp = self.api.get_temp()
         if temp != u'unknown':
             temp = int(float(str(temp)))
+            self.ids.easy_label_temperature.font_name = adobehtr
             self.ids.easy_label_temperature.text = '[color=#6E6E6E]'+str(temp)+'[/color]'
+        self.ids.easy_label_pm.font_name = adobehtr
+        self.ids.easy_label_pm.text = '[color=#6E6E6E]'+'优'+'[/color]'
+
+        self.ids.easy_label_water.font_name = adobehtr
+        self.ids.easy_label_water.text = '[color=#6E6E6E]' + '优' + '[/color]'
+
+        self.ids.easy_label_hum.font_name = adobehtr
+        self.ids.easy_label_hum.text = '[color=#6E6E6E]' + '舒适' + '[/color]'
+
+    def set_temp(self, temp):
+        self.temp = temp
+
+    def set_hum(self, hum):
+        self.hum = hum
+
+    def set_pm2_5(self, pm2_5):
+        self.pm2_5 = pm2_5
 
     def _update_clock(self,dt):
-        temp = self.api.get_temp()
-        if temp != u'unknown':
-            temp = int(float(str(temp)))
-            self.ids.easy_label_temperature.text = '[color=#6E6E6E]'+str(temp)+'[/color]'
+        self.ids.easy_label_temperature.text = '[color=#6E6E6E]' + str(self.temp) + '[/color]'
 
     def on_main_screen(self):
         pass
@@ -126,9 +150,9 @@ class EasyFloatLayout(FloatLayout):
         self.ids.button_cover_close.background_normal = 'data/icons/easy/select.jpg'
         self.ids.button_cover_close.background_down = 'data/icons/easy/select.jpg'
 
-        self.api.set_cover_position('left', 'LEVEL_ONE')
-        self.api.set_cover_position('right', 'LEVEL_ONE')
-        self.api.set_cover_position('bashroom', 'LEVEL_ONE')
+        self.api.set_cover_position('left_cover', 'ONE')
+        self.api.set_cover_position('right_cover', 'ONE')
+        self.api.set_cover_position('bashroom_cover', 'ONE')
 
     def on_cover_half_selected(self):
         self.current_cover = 'half'
@@ -141,9 +165,9 @@ class EasyFloatLayout(FloatLayout):
         self.ids.button_cover_close.background_normal = 'data/icons/easy/select.jpg'
         self.ids.button_cover_close.background_down = 'data/icons/easy/select.jpg'
 
-        self.api.set_cover_position('left', 'LEVEL_THREE')
-        self.api.set_cover_position('right', 'LEVEL_THREE')
-        self.api.set_cover_position('bashroom', 'LEVEL_THREE')
+        self.api.set_cover_position('left_cover', 'THREE')
+        self.api.set_cover_position('right_cover', 'THREE')
+        self.api.set_cover_position('bashroom_cover', 'THREE')
 
     def on_cover_close_selected(self):
         self.current_cover = 'close'
@@ -156,7 +180,7 @@ class EasyFloatLayout(FloatLayout):
         self.ids.button_cover_close.background_normal = 'data/icons/easy/selected.jpg'
         self.ids.button_cover_close.background_down = 'data/icons/easy/selected.jpg'
 
-        self.api.set_cover_position('left', 'LEVEL_FIVE')
-        self.api.set_cover_position('right', 'LEVEL_FIVE')
-        self.api.set_cover_position('bashroom', 'LEVEL_FIVE')
+        self.api.set_cover_position('left_cover', 'FIVE')
+        self.api.set_cover_position('right_cover', 'FIVE')
+        self.api.set_cover_position('bashroom_cover', 'FIVE')
 

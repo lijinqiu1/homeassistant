@@ -944,6 +944,92 @@
                     on_press: root.on_cover_left_postion_button(1)
 
         Screen:
+            name: 'cover_mid'
+            id: cover_mid
+            FloatLayout:
+                id: cover_mid_FloatLayout
+                canvas.before:
+                    Rectangle:
+                        pos: root.width*0.15,root.height*0.01052631578947368421052631578947
+                        size: root.width*0.7,root.height*0.77105263157894736842105263157895
+                        source: 'data/icons/profession/cover/mid_background.png'
+
+                Button:
+                    id: cover_mid_action_button
+                    size_hint: 0.0575, 0.12105263157894736842105263157895
+                    pos_hint: {"x": 0.28375, 'y': 0.35526315789473684210526315789474}
+                    background_normal:  "data/icons/profession/cover/switch.jpg"
+                    background_down:    "data/icons/profession/cover/switch.jpg"
+                    on_press: root.on_cover_mid_action_button()
+
+
+                Button:
+                    id: cover_mid_up_button
+                    size_hint: 0.0575, 0.12105263157894736842105263157895
+                    pos_hint: {"x": 0.19875, 'y': 0.10789473684210526315789473684211}
+                    background_normal:  "data/icons/profession/cover/up.jpg"
+                    background_down:    "data/icons/profession/cover/up.jpg"
+                    on_press: root.on_cover_mid_move_button(1)
+                    on_release: root.on_cover_mid_move_button(2)
+
+#                Button:
+#                    id: cover_mid_stop_button
+#                    size_hint: 0.0575, 0.12105263157894736842105263157895
+#                    pos_hint: {"x": 0.28375, 'y': 0.10789473684210526315789473684211}
+#                    background_normal:  "data/icons/profession/cover/stop.jpg"
+#                    background_down:    "data/icons/profession/cover/stop.jpg"
+#                    on_press: root.on_cover_mid_move_button(2)
+
+                Button:
+                    id: cover_mid_down_button
+                    size_hint: 0.0575, 0.12105263157894736842105263157895
+                    pos_hint: {"x": 0.3675, 'y': 0.10789473684210526315789473684211}
+                    background_normal:  "data/icons/profession/cover/down.jpg"
+                    background_down:    "data/icons/profession/cover/down.jpg"
+                    on_press: root.on_cover_mid_move_button(3)
+                    on_release: root.on_cover_mid_move_button(2)
+
+                Button:
+                    id: cover_mid_postion_5_button
+                    size_hint: 0.0575, 0.12105263157894736842105263157895
+                    pos_hint: {"x": 0.75375, 'y': 0.63684210526315789473684210526316}
+                    background_normal:  "data/icons/profession/cover/switch.jpg"
+                    background_down:    "data/icons/profession/cover/switch.jpg"
+                    on_press: root.on_cover_mid_postion_button(5)
+
+                Button:
+                    id: cover_mid_postion_4_button
+                    size_hint: 0.0575, 0.12105263157894736842105263157895
+                    pos_hint: {"x": 0.75375, 'y': 0.48684210526315789473684210526316}
+                    background_normal:  "data/icons/profession/cover/switch.jpg"
+                    background_down:    "data/icons/profession/cover/switch.jpg"
+                    on_press: root.on_cover_mid_postion_button(4)
+
+                Button:
+                    id: cover_mid_postion_3_button
+                    size_hint: 0.0575, 0.12105263157894736842105263157895
+                    pos_hint: {"x": 0.75375, 'y': 0.33684210526315789473684210526316}
+                    background_normal:  "data/icons/profession/cover/switch.jpg"
+                    background_down:    "data/icons/profession/cover/switch.jpg"
+                    on_press: root.on_cover_mid_postion_button(3)
+
+                Button:
+                    id: cover_mid_postion_2_button
+                    size_hint: 0.0575, 0.12105263157894736842105263157895
+                    pos_hint: {"x": 0.75375, 'y': 0.18684210526315789473684210526316}
+                    background_normal:  "data/icons/profession/cover/switch.jpg"
+                    background_down:    "data/icons/profession/cover/switch.jpg"
+                    on_press: root.on_cover_mid_postion_button(2)
+
+                Button:
+                    id: cover_mid_postion_1_button
+                    size_hint: 0.0575, 0.12105263157894736842105263157895
+                    pos_hint: {"x": 0.75375, 'y': 0.04473684210526315789473684210526}
+                    background_normal:  "data/icons/profession/cover/switch.jpg"
+                    background_down:    "data/icons/profession/cover/switch.jpg"
+                    on_press: root.on_cover_mid_postion_button(1)
+
+        Screen:
             name: 'cover_right'
             id: cover_right
             FloatLayout:

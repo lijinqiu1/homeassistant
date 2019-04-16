@@ -15,6 +15,9 @@ from easy import EasyFloatLayout
 from profession import ProfessionFloatLayout
 from setting import SettingFloatLayout
 from RsetAPI import RsetAPI
+import gevent
+import gevent.monkey
+gevent.monkey.patch_socket()
 Config.write()
 
 kivy.resources.resource_add_path("data/font")
@@ -28,22 +31,23 @@ class Homeassistant(App):
         self.api = RsetAPI()
         self.men_xi = 'men_xi'
         self.door_state = 'close'
-        Clock.schedule_interval(self._update_clock, 1)
+        Clock.schedule_interval(self._update_clock, 1.)
+        Clock.schedule_interval(self._update_state, 1.)
 
     def build(self):
-        main = MainFloatLayout()
+        self.main = MainFloatLayout()
         main_screen = Screen(name='main')
-        main_screen.add_widget(main)
+        main_screen.add_widget(self.main)
         self.root.ids.sm.add_widget(main_screen)
 
-        easy = EasyFloatLayout()
+        self.easy = EasyFloatLayout()
         easy_screen = Screen(name='easy')
-        easy_screen.add_widget(easy)
+        easy_screen.add_widget(self.easy)
         self.root.ids.sm.add_widget(easy_screen)
 
-        profession = ProfessionFloatLayout()
+        self.profession = ProfessionFloatLayout()
         profession_screen = Screen(name='profession')
-        profession_screen.add_widget(profession)
+        profession_screen.add_widget(self.profession)
         self.root.ids.sm.add_widget(profession_screen)
 
         setting = SettingFloatLayout()
@@ -53,20 +57,25 @@ class Homeassistant(App):
 
         self.root.ids.sm.current = 'main'
 
+        self.men_xi_state = 'on'
+
     def on_easy_screen(self):
         self.root.ids.sm.transition.direction = 'left'
         self.root.ids.sm.current = 'easy'
 
     def on_profession_screen(self):
         self.root.ids.sm.transition.direction = 'left'
+        # self.root.ids.sm.transition.duration = 1.
         self.root.ids.sm.current = 'profession'
 
     def on_main_screen(self):
         self.root.ids.sm.transition.direction = 'right'
+        # self.root.ids.sm.transition.duration = 1.
         self.root.ids.sm.current = 'main'
 
     def on_setting_screen(self):
         self.root.ids.sm.transition.direction = 'left'
+        # self.root.ids.sm.transition.duration = 1.
         self.root.ids.sm.current = 'setting'
 
     def on_door_control(self):
@@ -79,16 +88,29 @@ class Homeassistant(App):
             self.api.set_switch_on(self.men_xi)
             self.door_state = 'close'
 
+    def _update_state(self, dt):
+        gevent.joinall([
+            gevent.spawn(self.update_state())
+        ])
+
     def _update_clock(self, dt):
-        if self.api.get_switch_state(self.men_xi) == 'on':
+        if self.men_xi_state == 'on':
             if self.door_state == 'opened':
                 self.door_state = 'close'
                 self.root.ids.door_control.background_normal = "data/icons/door/open.jpg"
                 self.root.ids.door_control.background_down = "data/icons/door/open.jpg"
-        elif self.api.get_switch_state(self.men_xi) == 'off':
+        elif self.men_xi_state == 'off':
             self.door_state = 'opened'
             self.root.ids.door_control.background_normal = "data/icons/door/opened.jpg"
             self.root.ids.door_control.background_down = "data/icons/door/opened.jpg"
+
+    def update_state(self):
+        self.men_xi_state = self.api.get_switch_state(self.men_xi)
+        temp = self.api.get_temp()
+        temp = int(float(str(temp)))
+        self.main.set_temp(temp)
+        self.easy.set_temp(temp)
+
 
 
 if __name__ == '__main__':
