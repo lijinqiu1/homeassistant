@@ -17,28 +17,12 @@ class ProfessionFloatLayout(FloatLayout):
         super(ProfessionFloatLayout, self).__init__(**kwargs)
         self.api = RsetAPI()
         self.profession_current_type = 1
-        self.profession_event = 'None'
         self.profession_air_switch = 0
         self.profession_canopy_switch = 0
         self.profession_floor_heating_switch = 0
         self.profession_climate_switch = 0
         self.profession_climate_mode = 'None'
         self.profession_climate_temp = 25
-        self.profession_atmosphere_color = {'color_1': [255, 255, 255],
-                                            'color_2': [255, 217, 154],
-                                            'color_3': [255, 155, 213],
-                                            'color_4': [153, 226, 255],
-                                            'color_5': [154, 254, 209]}
-        self.profession_atmosphere_get_color = {'color_1': [255, 255, 255],
-                                                'color_2': [255, 214, 153],
-                                                'color_3': [255, 153, 209],
-                                                'color_4': [153, 224, 255],
-                                                'color_5': [153, 255, 204]}
-        self.profession_atmosphere_brightness = {'level_1': 50,
-                                                 'level_2': 100,
-                                                 'level_3': 150,
-                                                 'level_4': 200,
-                                                 'level_5': 230}
         self.profession_lights_bedroom = {'switch': 'None', 'level': 1}
         self.profession_lights_livingroom = {'switch': 'None', 'level': 1}
         self.profession_lights_vestibule = {'switch': 'None', 'level': 1}
@@ -59,7 +43,82 @@ class ProfessionFloatLayout(FloatLayout):
         self.api = RsetAPI()
 
         Clock.schedule_interval(self._update_clock, 1.)
-        # Clock.schedule_interval(self._update_state, 1.)
+        # Clock.schedule_interval(self._update_state, 2.)
+
+    def set_environment_air_switch(self, air):
+        self.profession_air_switch = air
+
+    def set_environment_canopy_switch(self, canopy):
+        self.profession_canopy_switch = canopy
+
+    def set_environment_floor_heating_switch(self, floor_heating):
+        self.profession_floor_heating_switch = floor_heating
+
+    def set_climate_mode_state(self, mode):
+        self.profession_climate_mode = mode
+
+    def set_climate_temp_state(self, temp):
+        self.profession_climate_temp = temp
+
+    def set_bedroom_lights_state(self, switch):
+        self.profession_lights_bedroom['switch'] = switch
+
+    def set_livingroom_lights_state(self, switch):
+        self.profession_lights_livingroom['switch'] = switch
+
+    def set_vestibule_lights_state(self, switch):
+        self.profession_lights_vestibule['switch'] = switch
+
+    def set_bashroom_lights_state(self, switch):
+        self.profession_lights_bashroom['switch'] = switch
+
+    def set_atmosphere_bedroom_switch(self, switch):
+        self.profession_atmosphere_bedroom['switch'] = switch
+
+    def set_atmosphere_bedroom_color(self, color):
+        self.profession_atmosphere_bedroom['color'] = color
+
+    def set_atmosphere_bedroom_level(self, level):
+        self.profession_atmosphere_bedroom['level'] = level
+
+    def set_atmosphere_livingroom_switch(self, switch):
+        self.profession_atmosphere_livingroom['switch'] = switch
+
+    def set_atmosphere_livingroom_color(self, color):
+        self.profession_atmosphere_livingroom['color'] = color
+
+    def set_atmosphere_livingroom_level(self, level):
+        self.profession_atmosphere_livingroom['level'] = level
+
+    def set_atmosphere_vestibule_switch(self, switch):
+        self.profession_atmosphere_vestibule['switch'] = switch
+
+    def set_atmosphere_vestibule_color(self, color):
+        self.profession_atmosphere_vestibule['color'] = color
+
+    def set_atmosphere_vestibule_level(self, level):
+        self.profession_atmosphere_vestibule['level'] = level
+
+    def set_atmosphere_bashroom_switch(self, switch):
+        self.profession_atmosphere_bashroom['switch'] = switch
+
+    def set_atmosphere_bashroom_color(self, color):
+        self.profession_atmosphere_bashroom['color'] = color
+
+    def set_atmosphere_bashroom_level(self, level):
+        self.profession_atmosphere_bashroom['level'] = level
+
+    def set_cover_left(self, postion):
+        self.profession_cover_left['postion'] = postion
+
+    def set_cover_mid(self, postion):
+        self.profession_cover_mid['postion'] = postion
+
+    def set_cover_right(self, postion):
+        self.profession_cover_right['postion'] = postion
+
+    def set_cover_bashroom(self, postion):
+        self.profession_cover_bashroom['postion'] = postion
 
     def _update_state(self, dt):
         gevent.joinall([

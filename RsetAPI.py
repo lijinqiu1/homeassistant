@@ -148,7 +148,21 @@ class RsetAPI():
             return None
 
     def get_liangdu(self,index):
-        response = get(self.url + 'states/sensor.liang_du_'+ index, headers=self.headers)
+        response = get(self.url + 'states/sensor.liang_du_' + index, headers=self.headers)
+        if response.status_code == 200:
+            return json.loads(response.text)['state']
+        else:
+            return None
+
+    def get_PM25_level(self):
+        response = get(self.url + 'states/input_select.pm2_5_level', headers=self.headers)
+        if response.status_code == 200:
+            return json.loads(response.text)['state']
+        else:
+            return None
+
+    def get_hum_level(self):
+        response = get(self.url + 'states/input_select.hum_level', headers=self.headers)
         if response.status_code == 200:
             return json.loads(response.text)['state']
         else:
@@ -289,8 +303,8 @@ class RsetAPI():
 
     def get_ac_temp(self):
         response = get(self.url + 'states/input_number.air_conditioner_temp', headers=self.headers)
-        temp = json.loads(response.text)['state']
         if response.status_code == 200:
+            temp = json.loads(response.text)['state']
             return int(float(temp.encode("utf-8")))
         else:
             return None
@@ -311,15 +325,16 @@ class RsetAPI():
         else:
             return False
 
+    def get_all_state(self):
+        response = get(self.url + 'states', headers=self.headers)
+        if response.status_code == 200:
+            return json.loads(response.text)
+        else:
+            return False
 
 if __name__ == '__main__':
     api = RsetAPI()
-    entity_id = 'bedroom'
-    brightness = 50
-    rgb_color = [154, 254, 209]
-
-    request = api.set_group_light_color(entity_id, rgb_color)
-    for n in range(0, 10):
-        state = api.get_group_light_state(entity_id)['attributes']['rgb_color']
+    states = api.get_all_state()
+    for state in states:
         print state
 
