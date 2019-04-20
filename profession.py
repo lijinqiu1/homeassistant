@@ -1082,9 +1082,9 @@ class ProfessionFloatLayout(FloatLayout):
                 "data/icons/profession/cover/switch_h.jpg"
 
     def _update_clock(self, dt):
-        gevent.joinall([
-            gevent.spawn(self.update_state())
-        ])
+        # gevent.joinall([
+        #     gevent.spawn(self.update_state())
+        # ])
         #获取新风状态
         if self.ids.sm_profession.current == 'environment_air':
             pass
@@ -1092,7 +1092,7 @@ class ProfessionFloatLayout(FloatLayout):
         elif self.ids.sm_profession.current == 'environment_floor_heating':
             self.update_floor_heat_screen()
         elif self.ids.sm_profession.current == 'environment_canopy':
-                self.update_canopy_screen()
+            self.update_canopy_screen()
         #获取空调状态
         elif self.ids.sm_profession.current == 'environment_climate':
             self.update_climate_screen()

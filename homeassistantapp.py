@@ -20,10 +20,14 @@ import gevent.monkey
 gevent.monkey.patch_socket()
 Config.write()
 
+import threading
+import time
+
 kivy.resources.resource_add_path("data/font")
 Config.set('graphics', 'width', '800')
 Config.set('graphics', 'height', '480')
 
+states = []
 
 class Homeassistant(App):
     def __init__(self, **kwargs):
@@ -32,8 +36,9 @@ class Homeassistant(App):
         self.men_xi = 'men_xi'
         self.men_xi_state = 'on'
         self.door_state = 'close'
+        self.states = []
         # Clock.schedule_interval(self._update_clock, 1.)
-        Clock.schedule_interval(self._update_state, 1.)
+        Clock.schedule_interval(self._update_state, 2)
 
     def build(self):
         self.main = MainFloatLayout()
@@ -90,9 +95,12 @@ class Homeassistant(App):
             self.door_state = 'close'
 
     def _update_state(self, dt):
-        gevent.joinall([
-            gevent.spawn(self.update_all_state())
-        ])
+        # gevent.joinall([
+        #     gevent.spawn(self.update_all_state())
+        # ])
+        threading.Thread(target=self.get_all_state()).start()
+        self.update_all_state_thread()
+        pass
 
     def _update_clock(self, dt):
         if self.men_xi_state == 'on':
@@ -121,8 +129,74 @@ class Homeassistant(App):
         self.easy.set_hum(hum, hum_level)
 
     def update_all_state(self):
-        states = self.api.get_all_state()
+        self.states = self.api.get_all_state()
         for state in states:
+            if state['entity_id'] == 'sensor.wen_du':
+                temp = state['state']
+                temp = int(float(str(temp)))
+                self.main.set_temp(temp)
+                self.easy.set_temp(temp)
+            elif state['entity_id'] == 'input_select.pm2_5_level':
+                pm25_level = state['state']
+                self.main.set_pm2_5(0, pm25_level)
+                self.easy.set_pm2_5(0, pm25_level)
+            elif state['entity_id'] == 'input_select.hum_level':
+                hum_level = state['state']
+                self.main.set_hum(0, hum_level)
+                self.easy.set_hum(0, hum_level)
+            elif state['entity_id'] == 'group.canopy_switch':
+                self.profession.set_environment_canopy_switch(state['state'])
+            elif state['entity_id'] == 'group.floor_heat_switch':
+                self.profession.set_environment_floor_heating_switch(state['state'])
+            elif state['entity_id'] == 'input_select.ac_setting':
+                self.profession.set_climate_mode_state(state['state'])
+            elif state['entity_id'] == 'input_select.air_conditioner_temp':
+                self.profession.set_climate_temp_state(state['state'])
+            elif state['entity_id'] == 'group.bedroom_light_switch':
+                self.profession.set_bedroom_lights_state(state['state'])
+            elif state['entity_id'] == 'group.vestibule_light_switch':
+                self.profession.set_vestibule_lights_state(state['state'])
+            elif state['entity_id'] == 'group.livingroom_light_switch':
+                self.profession.set_livingroom_lights_state(state['state'])
+            elif state['entity_id'] == 'group.bashroom_light_switch':
+                self.profession.set_bashroom_lights_state(state['state'])
+            elif state['entity_id'] == 'input_select.bedroom_color_light_rgb_setting':
+                self.profession.set_atmosphere_bedroom_color(state['state'])
+            elif state['entity_id'] == 'input_select.bedroom_color_light_brightness_setting':
+                self.profession.set_atmosphere_bedroom_level(state['state'])
+            elif state['entity_id'] == 'light.bedroom_color_lights':
+                self.profession.set_atmosphere_bedroom_switch(state['state'])
+            elif state['entity_id'] == 'input_select.bashroom_color_light_rgb_setting':
+                self.profession.set_atmosphere_bashroom_color(state['state'])
+            elif state['entity_id'] == 'input_select.bashroom_color_light_brightness_setting':
+                self.profession.set_atmosphere_bedroom_level(state['state'])
+            elif state['entity_id'] == 'light.bashroom_color_lights':
+                self.profession.set_atmosphere_bashroom_switch(state['state'])
+            elif state['entity_id'] == 'input_select.right_cover_position':
+                self.profession.set_cover_right(state['state'])
+            elif state['entity_id'] == 'input_select.mid_cover_position':
+                self.profession.set_cover_mid(state['state'])
+            elif state['entity_id'] == 'input_select.left_cover_position':
+                self.profession.set_cover_left(state['state'])
+            elif state['entity_id'] == 'input_select.bashroom_cover_position':
+                self.profession.set_cover_bashroom(state['state'])
+            elif state['entity_id'] == 'switch.men_xi':
+                self.men_xi_state = state['state']
+                if self.men_xi_state == 'on':
+                    if self.door_state == 'opened':
+                        self.door_state = 'close'
+                        self.root.ids.door_control.background_normal = "data/icons/door/open.jpg"
+                        self.root.ids.door_control.background_down = "data/icons/door/open.jpg"
+                elif self.men_xi_state == 'off':
+                    self.door_state = 'opened'
+                    self.root.ids.door_control.background_normal = "data/icons/door/opened.jpg"
+                    self.root.ids.door_control.background_down = "data/icons/door/opened.jpg"
+
+    def get_all_state(self):
+        self.states = self.api.get_all_state()
+
+    def update_all_state_thread(self):
+        for state in self.states:
             if state['entity_id'] == 'sensor.wen_du':
                 temp = state['state']
                 temp = int(float(str(temp)))
