@@ -15,9 +15,9 @@ from easy import EasyFloatLayout
 from profession import ProfessionFloatLayout
 from setting import SettingFloatLayout
 from RsetAPI import RsetAPI
-import gevent
-import gevent.monkey
-gevent.monkey.patch_socket()
+# import gevent
+# import gevent.monkey
+# gevent.monkey.patch_socket()
 Config.write()
 
 import threading
@@ -98,7 +98,7 @@ class Homeassistant(App):
         # gevent.joinall([
         #     gevent.spawn(self.update_all_state())
         # ])
-        threading.Thread(target=self.get_all_state()).start()
+        self.get_all_state()
         self.update_all_state_thread()
         pass
 

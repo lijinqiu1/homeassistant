@@ -5,9 +5,9 @@ from kivy.lang import Builder
 from kivy.graphics import Rectangle
 from kivy.clock import Clock
 from RsetAPI import RsetAPI
-import gevent
-import gevent.monkey
-gevent.monkey.patch_socket()
+# import gevent
+# import gevent.monkey
+# gevent.monkey.patch_socket()
 
 Builder.load_file('data/screens/profession.kv')
 
