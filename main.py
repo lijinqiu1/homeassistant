@@ -12,6 +12,7 @@ kivy.resources.resource_add_path("data/font")
 simhei = kivy.resources.resource_find("simhei.ttf")
 adobehtr = kivy.resources.resource_find("AdobeHeitiStd-Regular.otf")
 
+
 class MainFloatLayout(FloatLayout):
     def __init__(self, **kwargs):
         super(MainFloatLayout, self).__init__(**kwargs)

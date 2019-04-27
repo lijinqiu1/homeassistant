@@ -3,6 +3,7 @@ from requests import post
 import json
 import time
 
+
 class RsetAPI():
     def __init__(self):
         self.url = 'http://192.168.199.135:8123/api/'
