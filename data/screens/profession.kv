@@ -1,4 +1,4 @@
-<ProfessionFloatLayout>
+Ôªø<ProfessionFloatLayout>
     canvas.before:
         Rectangle:
             pos: self.pos
@@ -44,7 +44,7 @@
         background_down:    "data/icons/profession/cover.jpg"
         on_press: root.on_type_selected(4)
 
-    #◊Û
+    #Â∑¶
     Button:
         size_hint: 0.0575, 0.121
         pos_hint: {"x": 0.03375, 'y': 0.307894}
@@ -52,17 +52,17 @@
         background_down:    "data/icons/profession/left.jpg"
         on_release: root.go_previous_screen()
 
-    #”“
+    #Âè≥
     Button:
         size_hint: 0.0575, 0.121
         pos_hint: {"x": 0.91375, 'y': 0.307894}
         background_normal:  "data/icons/profession/right.jpg"
         background_down:    "data/icons/profession/right.jpg"
         on_release: root.go_next_screen()
-    #◊®º“ƒ£ Ω÷˜“≥
+    #‰∏ìÂÆ∂Ê®°Âºè‰∏ªÈ°µ
     ScreenManager
         id: sm_profession
-        #–¬∑Á
+        #Êñ∞È£é
         Screen
             name: 'environment_air'
             id: environment_air
@@ -81,7 +81,7 @@
                     background_normal:  "data/icons/profession/air/off.png"
                     background_down:    "data/icons/profession/air/off.png"
                     on_press: root.on_air_switch_selected()
-        #”Í≈Ô
+        #Èõ®Ê£ö
         Screen
             name: 'environment_canopy'
             id: environment_canopy
@@ -100,7 +100,7 @@
                     background_normal:  "data/icons/profession/canopy/off.png"
                     background_down:    "data/icons/profession/canopy/off.png"
                     on_press: root.on_canopy_switch_selected()
-        #µÿ≈Ø
+        #Âú∞Êöñ
         Screen:
             name: 'environment_floor_heating'
             id: environment_floor_heating
@@ -159,7 +159,7 @@
                     background_normal:  "data/icons/profession/floor_heating/switch_disable.jpg"
                     background_down:    "data/icons/profession/floor_heating/switch_disable.jpg"
                     on_press: root.on_floor_heating_level_selected('5')
-        #ø’µ˜
+        #Á©∫Ë∞É
         Screen:
             name: 'environment_climate'
             id: environment_climate
