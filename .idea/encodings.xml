@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/data/screens/easy.kv" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/data/screens/main.kv" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/data/screens/profession.kv" charset="GBK" />
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/data/screens/easy.kv" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/data/screens/main.kv" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/data/screens/profession.kv" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

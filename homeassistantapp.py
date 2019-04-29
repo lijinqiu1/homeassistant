@@ -18,6 +18,7 @@ from main import MainFloatLayout
 from easy import EasyFloatLayout
 from profession import ProfessionFloatLayout
 from setting import SettingFloatLayout
+from platform import python_version
 
 ACCESS_TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTA2NzIzOTAsImlzcyI6ImVmYmU5YWFhMWZlYzQ4YTNhOGVkZTNjNTU2YWE4MTU1IiwiZXhwIjoxODY2MDMyMzkwfQ.GlA1Qb0LmIWqSvkTSgv_7bUyMxq5IfU1kPR9PBBCb5Y'
 
@@ -48,7 +49,7 @@ class EventLoopWorker(EventDispatcher):
         # the following are for the pulse() coroutine, see below
         self._pulse = None
         self._pulse_task = None
-        self.url = 'http://192.168.199.135:8123/api/states'
+        self.url = 'http://192.168.199.111:8123/api/states'
 
     def _run_loop(self):
         self.loop = asyncio.get_event_loop_policy().new_event_loop()
@@ -66,6 +67,8 @@ class EventLoopWorker(EventDispatcher):
             async with ClientSession(headers=headers) as session:
                 async with session.get(self.url) as r:
                     results = await r.read()
+                    if python_version() is not '3.5.3':
+                        results = results.decode()
                     msg = json.loads(results)
                     print(msg)
 

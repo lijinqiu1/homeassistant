@@ -5,7 +5,9 @@ from RsetAPI import RsetAPI
 from kivy.clock import Clock
 import kivy
 
-Builder.load_file('data/screens/easy.kv')
+with open('data/screens/easy.kv', encoding='utf8') as f:
+    Builder.load_string(f.read())
+# Builder.load_file('data/screens/easy.kv')
 kivy.resources.resource_add_path("data/font")
 simhei = kivy.resources.resource_find("simhei.ttf")
 adobehtr = kivy.resources.resource_find("AdobeHeitiStd-Regular.otf")
